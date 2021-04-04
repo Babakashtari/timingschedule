@@ -1,0 +1,112 @@
+header{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    background-color: lightblue;
+}
+
+header ul{
+    list-style-type: none;
+    display: inline-block;
+}
+
+/* header navigation menu */
+header ul:not(.logo-container){
+    float: right;
+}
+header ul > li{
+    display:inline-block;
+}
+
+header ul > li > a{
+    display: block;
+    color: black;
+    padding:1.5rem;
+    text-decoration: none;
+    border-radius: 5px;   
+    transition: 0.5s;
+    font-size: 1rem;
+}
+
+/* logout/signin link */
+header ul > li > form > button{
+    display:block;
+    font-weight: bold;
+    font-size: 1rem;
+    border:none;
+    color:black;
+    background-color: transparent;
+    padding:1.5rem;
+    text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+header ul > li > form > button:hover{
+    color:white;
+    background-color: blue;
+}
+
+/* logo containing link */
+header ul.logo-container > li.logo > a{
+    padding:0;
+}
+
+/* logo image */
+header ul.logo-container > li.logo > a > img{
+    width:55px;
+    border-radius: 50%;
+    margin:5px;
+} 
+
+/* no background change on hover for the logo image: */
+header ul:not(.logo-container) > li > a:hover{
+    color:white;
+    background-color: blue;
+}
+/* logo container ul: */
+header ul.logo-container{
+    position: relative;
+}
+
+/* the text beside the logo: */
+header ul.logo-container > li.logo-text{
+    position: absolute;
+    top:0;
+    left:100%;
+    z-index: 1000;
+}
+
+
+header ul.logo-container > li.logo-text > a{
+    padding: 1.5rem 0;
+    color:blue;
+    width: 150px;
+    transition: 0.5s;
+    font-style: italic;
+
+}
+
+/* color change for the text beside the logo on hover: */
+header ul.logo-container > li.logo-text > a:hover{
+    color:rgb(69, 157, 215);
+}
+
+@media (max-width:750px){
+    /* for putting navigation elements below each other in the header */
+    header ul{
+        display:block;
+        width: 100%;
+        text-align: center;
+        float: none !important;
+    }
+    /* for putting the text beside the logo below the logo image */
+    header ul.logo-container>li{
+        display: block;
+        position: static !important;
+    }
+    header ul.logo-container > li.logo-text > a{
+        /* width is set to 100 so thet the text below the logo image centers */
+        width: 100%;
+    }
+}
