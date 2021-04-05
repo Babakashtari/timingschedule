@@ -1,0 +1,4 @@
+for web-based version of this site: 
+1. Returning back the dynamic ip at location.php line 27 and removing line 29
+
+2. Checking if PHPMailer works fine and sends messages successfully.

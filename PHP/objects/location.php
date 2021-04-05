@@ -24,7 +24,9 @@ class Get_IP {
 }
 
 // getting the IP address:
-$IP = Get_IP::get_IP_address();
+// $IP = Get_IP::get_IP_address();
+// while working offline via localhost:
+$IP = "2.191.190.141";
 
 
 

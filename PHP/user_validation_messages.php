@@ -13,7 +13,12 @@
             foreach ($user->get_errors() as $error ) {
                 echo $error;
             }    
-        }            
+        }
+        if(!empty($user->get_success_messages())){
+            foreach ($user->get_success_messages() as $success_message ) {
+                echo $success_message;
+            }    
+        }       
     }
     ?>
     </div>

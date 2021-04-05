@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="photos/clock_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/top_time_and_date.css">
-    <link rel="stylesheet" href="CSS/user_validation_errors.css">
+    <link rel="stylesheet" href="CSS/user_validation.css">
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/signin.css">
@@ -28,7 +28,7 @@
         <!-- top welcome text: -->
         <?php require "PHP/welcome.php"; ?>
         <!-- top of the forms validation errors: -->
-        <?php require "PHP/user_validation_errors.php"; ?>
+        <?php require "PHP/user_validation_messages.php"; ?>
         <!-- sign in form: -->
         <?php require "PHP/signin.php" ?>
         <!-- registration form: -->
