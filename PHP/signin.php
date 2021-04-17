@@ -1,5 +1,6 @@
 <?php
-if($need_signin){
+// $need_signin is handled from login_signin_check.php
+if(!isset($_SESSION['username']) && $need_signin){
     ?>
     <div class="signin">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
@@ -21,6 +22,8 @@ if($need_signin){
                         <button type="submit" name="register" value="register">Register here</button>
                     </p>
                 </div>
+                <!-- if the user entered here after trying the add new button: -->
+                <?php if(isset($_POST['add_new'])){?><input type="hidden" name="add_new" value="add_new"><?php } ?>
             </fieldset>
         </form>
     </div>

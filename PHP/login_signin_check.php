@@ -24,11 +24,11 @@
         // if a signin attempt has occured: 
         elseif(isset($_POST['signin'])){
             // when the user clicks the signin button from a register form:
-            if($_POST['signin'] == "signin"){
+            if($_POST['signin'] === "signin"){
                 $need_register = false;
                 $need_signin = true;    
             // when a user successfully signs in:       
-            }elseif($_POST['signin'] == "signed_in"){
+            }elseif($_POST['signin'] === "signed_in"){
                 // if there was no validation errors:
                 if(empty($user->get_errors())){
                     $need_register = false;

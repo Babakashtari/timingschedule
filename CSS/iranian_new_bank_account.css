@@ -1,0 +1,36 @@
+textarea#account_holders,
+input#account_holder{
+    width:100%;
+    padding:0.25rem;
+}
+div#Bank_name_container{
+    position: relative;
+}
+.new_program > form > fieldset > div select#Bank_name{
+    width:calc(100% - 60px);
+}
+div#bank_image_container{
+    width:50px;
+    height:50px;
+    display: inline-block;
+    background-image: linear-gradient(green 33%, white 33%, white 66%, red 66%);
+    position: absolute;
+    bottom:0;
+    right:10px;
+}
+input#new_bank_name{
+    width:100%;
+    padding: 0.25rem;
+}
+input[type="file"]{
+    cursor: pointer;
+    margin:0.25rem;
+}
+button[type="submit"]{
+    cursor: pointer;
+}
+div#add_bank{
+    border:3px solid gray;
+    border-radius: 15px;
+    padding:1rem 0.5rem;
+}

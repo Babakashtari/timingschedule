@@ -1,3 +1,8 @@
+forgot password section
+didn't receive your activation email? send it again here
+back button
+
+
 for web-based version of this site: 
 1. Returning back the dynamic ip at location.php line 27 and removing line 29
 

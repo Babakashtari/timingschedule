@@ -1,5 +1,6 @@
 <?php
-if($need_register){
+// $need_register is handled from login_signin_check.php
+if(!isset($_SESSION['username']) && $need_register){
     ?>
     <div class="register">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">

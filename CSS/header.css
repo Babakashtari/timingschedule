@@ -92,7 +92,7 @@ header ul.logo-container > li.logo-text > a:hover{
     color:rgb(69, 157, 215);
 }
 
-@media (max-width:750px){
+@media (max-width:500px){
     /* for putting navigation elements below each other in the header */
     header ul{
         display:block;
