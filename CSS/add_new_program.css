@@ -22,8 +22,7 @@
 .new_program > form > fieldset > div > label{
     display: block;
 }
-.new_program > form > fieldset > div > span label, 
-.new_program > form > fieldset > div > span input{
+.new_program > form > fieldset > div > span label{
     cursor: pointer;
 }
 .new_program > form > fieldset > div > input{

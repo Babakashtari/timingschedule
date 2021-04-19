@@ -4,14 +4,18 @@ const multiple_owners_digtag = document.querySelector('div.new_program > form > 
 const bank_name_selector = document.querySelector('div.new_program > form > fieldset > div > select#Bank_name')
 const new_bank_checkbox = document.querySelector('div.new_program > form > fieldset > div > span > label > input#add_new_bank');
 const add_bank_form_container = document.querySelector('div.new_program > form > fieldset > div#add_bank');
+const single_account_holder_name = document.querySelector('div.new_program > form > fieldset > div > label#single_holder');
 
 function show_multiple_owners_div(){
     if(multiple_owner.checked){
         single_account_holder_input.setAttribute('disabled', true);
         multiple_owners_digtag.classList.remove('displayNone');
+        single_account_holder_name.classList.remove('compulsary');
+
     }else{
         single_account_holder_input.removeAttribute('disabled');
         multiple_owners_digtag.classList.add('displayNone');
+        single_account_holder_name.classList.add('compulsary');
     }
 }
 

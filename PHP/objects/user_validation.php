@@ -8,6 +8,7 @@ require "users.php";
         public $location;
         public $hashed_pass;
         public $token;
+        public $user_ID;
         public $success_messages = [];
         public $errors=[];
     
@@ -55,6 +56,7 @@ require "users.php";
                             }else{
                                 // successfully logged in:
                                 array_push($this->success_messages, "<p class='success'>Congradulations, you have successfully logged in.</p>");
+                                $this->user_ID = $associative_array['ID'];
                                 // devoting login credentials to session values are handled directly from Session class in session.php file
                             }    
                         }

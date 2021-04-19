@@ -5,11 +5,11 @@
             <fieldset>
                     <legend>New iterable event:</legend>
                     <div>
-                        <label for="new_iterable_event_name">Name of the event:</label>
+                        <label class="compulsary" for="new_iterable_event_name">Name of the event:</label>
                         <input type="text" name="new_iterable_event_name" id="new_iterable_event_name" placeholder="My class with MR. Park">
                     </div>
                     <div>
-                        <label for="duration">Duration of the event in days:
+                        <label class="compulsary" for="duration">Duration of the event in days:
                             <input type="number" name="duration" id="duration">
                         </label>
                         <span>
@@ -21,7 +21,7 @@
                     </div>
                     <div>
                         <span>
-                            <p>Detail of the iteration:</p>
+                            <p class="compulsary">Detail of the iteration:</p>
                             <label for="daily_selector">
                                 <input type="radio" name="iteration" id="daily_selector" value="daily">
                                 Daily
@@ -40,7 +40,7 @@
                         </span>                    
                     </div>
                     <div class="iterator_container" id="daily">
-                        <p>Please choose the time of the day when the event occurs:</p>
+                        <p class="compulsary">Please choose the time of the day when the event occurs:</p>
                         <span>
                             <label for="morning">
                                 <input type="checkbox" name="daily" id="morning" value="morning">
@@ -65,7 +65,7 @@
                         </span>
                     </div>
                     <div class="iterator_container" id="weekly">
-                        <p>Please choose the time of the week when the event occurs:</p>
+                        <p class="compulsary">Please choose the time of the week when the event occurs:</p>
                         <span>
                             <label for="Monday">
                                 <input type="checkbox" name="weekly" id="Monday" value="Monday">
@@ -98,7 +98,7 @@
                         </span>
                     </div>
                     <div class="iterator_container" id="monthly">
-                        <p>Please choose the day of the month when the event occurs:</p>
+                        <p class="compulsary">Please choose the day of the month when the event occurs:</p>
                         <span>
                             <?php
                                function add_days_of_the_month(){
@@ -164,10 +164,10 @@
                         </span>
                     </div>
                     <div class="displayNone" id="money_amount_container">
-                        <label for="amount_of_money_received">How much do you receive per iteration?
+                        <label for="amount_of_money_received" class="compulsary">How much do you receive per iteration?
                             <input type="number" name="amount_of_money_received" id="amount_of_money_received">
                         </label>
-                        <p>choose your currency:</p>
+                        <p class="compulsary">choose your currency:</p>
                         <select name="currency" id="currency">
                             <option value="US_Dollar">US Dollars</option>
                             <option value="CA_Dollar">CA Dollars</option>

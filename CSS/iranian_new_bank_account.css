@@ -1,4 +1,3 @@
-textarea#account_holders,
 input#account_holder{
     width:100%;
     padding:0.25rem;
@@ -22,13 +21,7 @@ input#new_bank_name{
     width:100%;
     padding: 0.25rem;
 }
-input[type="file"]{
-    cursor: pointer;
-    margin:0.25rem;
-}
-button[type="submit"]{
-    cursor: pointer;
-}
+
 div#add_bank{
     border:3px solid gray;
     border-radius: 15px;
