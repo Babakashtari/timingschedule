@@ -2,7 +2,15 @@
 <?php require "PHP/login_signin_check.php"; ?>
 
 <?php echo "POST array includes: "; print_r($_POST); echo "<br>"; ?>
-<?php echo "SESSION array includes: "; print_r($_SESSION); echo "<br>"; ?>
+<!-- <?php echo "SESSION array includes: "; print_r($_SESSION); echo "<br><br><br>"; ?> -->
+<!-- <?php echo "POST array keys are:"; print_r(array_keys($_POST)); echo "<br>" ?> -->
+
+<!-- <?php 
+    $post_keys = array_keys($_POST); 
+    $last_name = end($post_keys);
+    echo $last_name; 
+?> -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +49,8 @@
         <?php require "PHP/signin.php"; ?>
         <!-- registration form: -->
         <?php require "PHP/register.php"; ?>
+        <!-- results of adding bank accounts: -->
+        <?php require 'PHP/objects/new/bank_accounts/new_bank_added.php' ?>;
     </main>
     <footer>
     
@@ -48,6 +58,7 @@
     <!-- loading scripts conditionally: -->
     <?php if(isset($_POST['Iterable_event'])){ ?><script src="javascript/iterable_event.js"></script><?php } ?>
     <?php if(isset($_POST['Iranian_bank_account'])){ ?><script src="javascript/new_bank_account.js"></script> <?php } ?>
+    <?php if(isset($_POST['Iranian_bank_account'])){?><script src="javascript/bank_images.js"></script>  <?php } ?>
 
 </body>
 </html>

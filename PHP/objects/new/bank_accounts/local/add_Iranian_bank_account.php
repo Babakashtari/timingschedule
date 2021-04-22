@@ -6,9 +6,17 @@
                     <legend>New Iranian Bank Account:</legend>
                     <div id="Bank_name_container">
                         <p class="compulsary">Bank name:</p>
-                        <div id="bank_image_container"></div>
+                        <div id="bank_image_container">
+                        <img src="photos/Bank_photos/Iranian_banks/Eghtesade Novin.png" width="100%" height="100%">
+                            <?php require "PHP/objects/bank_images_generator.php";
+                                if(isset($_POST['Iranian_bank_account'])){
+                                    $Iranian_bank_images = new Bank_photos('Iran');
+                                    $Iranian_bank_images->get_image_directories();
+                                }       
+                            ?>
+                        </div>
                         <select name="Bank_name" id="Bank_name">
-                            <option value="">Please select a bank</option>
+                            <!-- <option value="">Please select a bank</option> -->
                             <?php 
                                 require 'PHP/objects/database_connection.php';
                                 if ($connection->connect_error) {
@@ -19,7 +27,7 @@
                                     if($result->num_rows > 0){
                                         while ($associative_array = $result->fetch_assoc()) {
                                         ?>
-                                            <option value="<?php echo $associative_array['Bank_name'] ?>"><?php echo $associative_array['Bank_name'] ?></option>
+                                            <option value="<?php echo $associative_array['Bank_ID'] ?>"><?php echo $associative_array['Bank_name'] ?></option>
                                         <?php
                                         }
                                     }
@@ -45,8 +53,8 @@
                         <button type="submit" name="Iranian_bank_account" value="new_bank_submit">Add Bank</button>
                     </div>
                     <div>
-                        <label class="compulsary" for="account_holder" id="single_holder">Holder name (real/corporate):
-                            <input type="text" name="account_holder" id="account_holder">
+                        <label class="compulsary" for="account_holder" id="single_holder">Holder name:
+                            <input type="text" name="account_holder" id="account_holder" placeholder="Type in your name">
                         </label>
                         <span>
                             <label for="corporate">
@@ -99,14 +107,13 @@
                         <select name="currency" id="currency">
                             <option value="US_Dollar">US Dollars</option>
                             <option value="CA_Dollar">CA Dollars</option>
-
                             <option value="Euros">Euros</option>
                             <option value="Ir_Rial" selected>Ir Rials</option>
                             <option value="Ir_Toman">Ir Tomans</option>
                         </select>
                     </div>
                     <div>
-                        <button type="submit" name="add_new_account" value="add_new_account">Add New Account</button>
+                        <button type="submit" name="add_new_Iranian_account" value="add_new_Iranian_account">Add New Account</button>
                     </div>
             </fieldset>
         </form>
