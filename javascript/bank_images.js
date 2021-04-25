@@ -12,26 +12,23 @@ class Bank_images{
         cleaned_text_content = cleaned_text_content.replace("]", "");
         // splicing string from , into an array:
         return cleaned_text_content.split(",");
-
-        
     }
-    
+
     create_background_image(directories){
         const image_container = document.getElementById('bank_image_container');
         const image = image_container.querySelector('img');
         const select = document.getElementById('Bank_name');
         const select_options = document.getElementById('Bank_name').querySelectorAll('option');
 
-        select.addEventListener('change', function(event){
-
+        function add_image(){
             for(let i = 0; i< select_options.length; i++){
-                if(event.target.value === select_options[i].value){
+                if(select.value === select_options[i].value){
                     image.setAttribute("src", directories[i]);
                 }
             }
-    
-        })
-        
+        }
+        window.addEventListener('load', add_image);
+        select.addEventListener('change', add_image);
     }
 }
 

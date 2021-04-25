@@ -104,12 +104,10 @@ if(isset($_POST['add_new'])){
 
 // if an Iranian bank account is selected:
 }elseif(isset($_POST['Iranian_bank_account'])){
+    require "PHP/objects/new/bank_accounts/new_bank_added.php";
     require "PHP/objects/new/bank_accounts/local/add_Iranian_bank_account.php";
-
-// if a new iterable program is selected:
 }elseif(isset($_POST['Events'])){
     $edd_new_event = new Events();
-
 // if an iterable event is selected:
 }elseif(isset($_POST['Iterable_event'])){
     require "PHP/objects/new/timely_events/new_iterable_event.php";

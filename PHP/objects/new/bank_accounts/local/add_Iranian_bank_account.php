@@ -7,7 +7,7 @@
                     <div id="Bank_name_container">
                         <p class="compulsary">Bank name:</p>
                         <div id="bank_image_container">
-                        <img src="photos/Bank_photos/Iranian_banks/Eghtesade Novin.png" width="100%" height="100%">
+                        <img src="" width="100%" height="100%">
                             <?php require "PHP/objects/bank_images_generator.php";
                                 if(isset($_POST['Iranian_bank_account'])){
                                     $Iranian_bank_images = new Bank_photos('Iran');
@@ -27,7 +27,7 @@
                                     if($result->num_rows > 0){
                                         while ($associative_array = $result->fetch_assoc()) {
                                         ?>
-                                            <option value="<?php echo $associative_array['Bank_ID'] ?>"><?php echo $associative_array['Bank_name'] ?></option>
+                                            <option value="<?php echo $associative_array['Bank_ID'] ?>" <?php if(isset($_POST['Bank_name']) && $_POST['Bank_name'] === $associative_array['Bank_ID']){ echo "selected";} ?> ><?php echo $associative_array['Bank_name'] ?></option>
                                         <?php
                                         }
                                     }
@@ -54,7 +54,7 @@
                     </div>
                     <div>
                         <label class="compulsary" for="account_holder" id="single_holder">Holder name:
-                            <input type="text" name="account_holder" id="account_holder" placeholder="Type in your name">
+                            <input type="text" name="account_holder" id="account_holder" placeholder="Type in your name" value="<?php if(isset($_POST['account_holder'])){echo $_POST['account_holder']; } ?>">
                         </label>
                         <span>
                             <label for="corporate">
@@ -73,47 +73,47 @@
                     </div>
                     <div>
                         <label for="branch">Branch Name:
-                            <input type="text" name="branch" id="branch">
+                            <input type="text" name="branch" id="branch" value="<?php if(isset($_POST['branch'])){echo $_POST['branch'];} ?>" placeholder="Ex: Imam Khomeini st">
                         </label>
                     </div>
                     <div>
                         <label class="compulsary" for="account_number">Account Number:
-                            <input type="text" name="account_number" id="account_number">
+                            <input type="text" name="account_number" id="account_number" value="<?php if(isset($_POST['account_number'])){echo $_POST['account_number'];} ?>" placeholder="enter your account number">
                         </label>
                     </div>
                     <div>
                         <label for="card_number">Card Number:
-                            <input type="text" name="card_number" id="card_number">
+                            <input type="text" name="card_number" id="card_number" value="<?php if(isset($_POST['card_number'])){echo $_POST['card_number'];} ?>" placeholder="Enter 16 digit card number">
                         </label>
                     </div>
                     <div>
                         <label for="Shaba_number">Account Shaba Number:
-                            <input type="text" name="Shaba_number" id="Shaba_number">
+                            <input type="text" name="Shaba_number" id="Shaba_number" value="<?php if(isset($_POST['Shaba_number'])){echo $_POST['Shaba_number'];} ?>" placeholder="enter IR + 24 numbers">
                         </label>
                     </div>
                     <div>
                         <label for="Initial_deposit">Initial Deposit:
-                            <input type="text" name="Initial_deposit" id="Initial_deposit">
+                            <input type="text" name="Initial_deposit" id="Initial_deposit" value="<?php if(isset($_POST['Initial_deposit'])){echo $_POST['Initial_deposit'];} ?>" >
                         </label>
                     </div>
 
                     <div>
                         <p>Descriptions:</p>                            
-                        <textarea name="descriptions" id="descriptions" rows="10" placeholder="type something about this account..."></textarea>
+                        <textarea name="descriptions" id="descriptions" rows="10" placeholder="type something about this account..." ><?php if(isset($_POST['descriptions'])){echo $_POST['descriptions'];} ?></textarea>
                     </div>
-
                     <div id="money_amount_container">
-                        <p class="compulsary">Choose The Currency Of The Account:</p>
+                        <p class="compulsary">Currency Unit Of The Account:</p>
                         <select name="currency" id="currency">
                             <option value="US_Dollar">US Dollars</option>
                             <option value="CA_Dollar">CA Dollars</option>
                             <option value="Euros">Euros</option>
+                            <!-- this value is selected as this is where an Iranian bank account is added: -->
                             <option value="Ir_Rial" selected>Ir Rials</option>
                             <option value="Ir_Toman">Ir Tomans</option>
                         </select>
                     </div>
                     <div>
-                        <button type="submit" name="add_new_Iranian_account" value="add_new_Iranian_account">Add New Account</button>
+                        <button type="submit" name="Iranian_bank_account" value="Iranian_bank_account_submit">Add New Account</button>
                     </div>
             </fieldset>
         </form>

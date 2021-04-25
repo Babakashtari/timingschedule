@@ -7,8 +7,10 @@ class Data_clean_up {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
+
     if (preg_match($regex,$data)) {
       return $data;
+      echo $data;
     }else{
       return $data = null;
     }

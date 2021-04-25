@@ -49,8 +49,6 @@
         <?php require "PHP/signin.php"; ?>
         <!-- registration form: -->
         <?php require "PHP/register.php"; ?>
-        <!-- results of adding bank accounts: -->
-        <?php require 'PHP/objects/new/bank_accounts/new_bank_added.php' ?>;
     </main>
     <footer>
     

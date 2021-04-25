@@ -12,24 +12,20 @@
         </ul>
         <ul>
             <?php
-                // if a user had already visited more than 2 pages so that the back button to be active: 
-                if(isset($_SESSION['pages_sequence']) && count($_SESSION['pages_sequence']) >=2){ 
+                // Generating the back key in the header menu: 
+                if(isset($_SESSION['pages_sequence_keys'])){ 
+                    // if the user clicked the back button:
                     if(isset($_POST['back'])){
-                        array_pop($_SESSION['pages_sequence']);
+                        array_pop($_SESSION['pages_sequence_keys']);
+                        array_pop($_SESSION['pages_sequence_values']);
                     }
-                    // returning the keys of the pages_sequence array:
-                    $pages_sequence_keys = array_keys($_SESSION['pages_sequence']); 
-                    // droping the current key at the end of the pages_sequence_keys array:
-                    array_pop($pages_sequence_keys);
-                    // returning the previous page key from the end of the pages_sequence keys array:
-                    $previous_page_key = end($pages_sequence_keys);
-
-                    // getting the page_sequence values:
-                    $pages_sequence_values = $_SESSION['pages_sequence'];
-                    // shifting the last element in the values array of page_sequences:
-                    array_pop($pages_sequence_values);
-                    $previous_page_value = end($pages_sequence_values);    
-                    ?>
+                    $number_of_pages_visited = count($_SESSION['pages_sequence_keys']);
+                    // if there was at least 2 page visits so that the back button refers the user to the previous page visited:
+                    if($number_of_pages_visited > 1){
+                        $previous_page_index = $number_of_pages_visited - 2;
+                        $previous_page_key = $_SESSION['pages_sequence_keys'][$previous_page_index];
+                        $previous_page_value = $_SESSION['pages_sequence_values'][$previous_page_index];
+                        ?>
                         <li>
                             <!-- back button: -->
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
@@ -39,7 +35,8 @@
                                 </button>
                             </form>            
                         </li>
-                    <?php
+                        <?php
+                    }
                 }
             ?>
             <li>

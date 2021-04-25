@@ -36,18 +36,32 @@ class Session extends Validation {
         $post_keys = array_keys($_POST); 
         $post_last_key = end($post_keys);
 
-        if(!isset($_SESSION['pages_sequence'])){
-            $_SESSION['pages_sequence']['signin'] = "signed_in";
-        }else{
-            if(count($_SESSION['pages_sequence']) < 6){
-                $_SESSION['pages_sequence'][$post_last_key] = $post_last_value;
+        if(!isset($_POST['signin']) && !isset($_POST['register'])){
+            if(!isset($_SESSION['pages_sequence_keys'])){
+                $_SESSION['pages_sequence_keys'] = [];
+                $_SESSION['pages_sequence_values'] = [];
+                array_push($_SESSION['pages_sequence_keys'], $post_last_key);
+                array_push($_SESSION['pages_sequence_values'], $post_last_value);
             }else{
-                $_SESSION['pages_sequence'][$post_last_key] = $post_last_value;
-                array_shift($_SESSION['pages_sequence']);
+                if(count($_SESSION['pages_sequence_keys']) < 6){
+                    // if the user visits the page from a way other than clicking the back button:
+                    if(!isset($_POST['back'])){
+                        array_push($_SESSION['pages_sequence_keys'], $post_last_key);
+                        array_push($_SESSION['pages_sequence_values'], $post_last_value);    
+                    }
+                // if more than 6 pages were visited by the user: 
+                }else{
+                    // if the user visits the page from a way other than clicking the back button:
+                    if(!isset($_POST['back'])){
+                        array_push($_SESSION['pages_sequence_keys'], $post_last_key);
+                        array_push($_SESSION['pages_sequence_values'], $post_last_value);
+                        // removing from the first element so that the user's website serfing activity won't exceed 6 pages in a row:
+                        array_shift($_SESSION['pages_sequence_keys']);
+                        array_shift($_SESSION['pages_sequence_values']);    
+                    }
+                }    
             }    
         }
-
-
     }
     // static is used to call the function directly without any instance of the class:
     static function kill_session(){
