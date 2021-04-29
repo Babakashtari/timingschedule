@@ -4,10 +4,10 @@ class First_menu{
     function __construct(){
     ?>
         <div class="new">
-            <p class="detail">Please choose what you would like to set up:</p>
+            <p class="detail"><?php global $translation; echo $translation['first_menu_text']; ?></p>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                <button type="submit" name="Business" value="Business">Business Related</button>
-                <button type="submit" name="Events" value="Events">Timely Events</button>
+                <button type="submit" name="Business" value="Business"><?php global $translation; echo $translation['business_menu'];  ?></button>
+                <button type="submit" name="Events" value="Events"><?php global $translation; echo $translation['timely_Events']; ?></button>
             </form>
         </div>
     <?php
@@ -19,10 +19,10 @@ class Business {
     function __construct(){
     ?>
         <div class="new">
-            <p class="detail">Please choose what business details you would like to add:</p>
+            <p class="detail"><?php global $translation; echo $translation['business_submenu']; ?></p>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                <button type="submit" name="New_accounting_program" value="New_accounting_program">New Accounting Program </button>
-                <button type="submit" name="New_bank_account" value="New_bank_account">New Bank Account</button>
+                <button type="submit" name="New_accounting_program" value="New_accounting_program"><?php global $translation; echo $translation['New_Accounting_Program']; ?> </button>
+                <button type="submit" name="New_bank_account" value="New_bank_account"><?php global $translation; echo $translation['New_Bank_Account']; ?></button>
             </form>
         </div>
     <?php
@@ -34,11 +34,11 @@ class Bank_account{
     function __construct(){
         ?>
             <div class="new">
-                <p class="detail">Please choose what sort of bank account you would like to add:</p>
+                <p class="detail"><?php global $translation; echo $translation['Add_new_bank_account']; ?></p>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                    <button type="submit" name="Visa" value="Visa_card">Visa Card</button>
-                    <button type="submit" name="Master" value="Master">Master Card</button>
-                    <button type="submit" name="Local" value="Local">Local Banks</button>
+                    <button type="submit" name="Visa" value="Visa_card"><?php global $translation; echo $translation['Visa_card']; ?></button>
+                    <button type="submit" name="Master" value="Master"><?php global $translation; echo $translation['Master_Card']; ?></button>
+                    <button type="submit" name="Local" value="Local"><?php global $translation; echo $translation['Local_Banks']; ?></button>
                 </form>
             </div>
         <?php
@@ -49,17 +49,16 @@ class local_banks{
     function __construct(){
         ?>
             <div class="new">
-                <p class="detail">Please choose what sort of bank account you would like to add:</p>
+                <p class="detail"><?php global $translation; echo $translation['Bank_country']; ?></p>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                    <button type="submit" name="Iranian_bank_account" value="add_new_Iranian_bank_account">Iran</button>
-                    <button type="submit" name="England" value="England">England</button>
-                    <button type="submit" name="US" value="US">US</button>
-                    <button type="submit" name="Canada" value="Canada">Canada</button>
-                    <button type="submit" name="France" value="France">France</button>
-                    <button type="submit" name="Norway" value="Norway">Norway</button>
-                    <button type="submit" name="China" value="China">China</button>
-                    <button type="submit" name="Russian" value="Russian">Russian</button>
-
+                    <button type="submit" name="Iranian_bank_account" value="add_new_Iranian_bank_account"><?php global $translation; echo $translation['Iran']; ?></button>
+                    <button type="submit" name="England" value="England"><?php global $translation; echo $translation['England']; ?></button>
+                    <button type="submit" name="US" value="US"><?php global $translation; echo $translation['US']; ?></button>
+                    <button type="submit" name="Canada" value="Canada"><?php global $translation; echo $translation['Canada']; ?></button>
+                    <button type="submit" name="France" value="France"><?php global $translation; echo $translation['France']; ?></button>
+                    <button type="submit" name="Norway" value="Norway"><?php global $translation; echo $translation['Norway']; ?></button>
+                    <button type="submit" name="China" value="China"><?php global $translation; echo $translation['China']; ?></button>
+                    <button type="submit" name="Russian" value="Russian"><?php global $translation; echo $translation['Russia']; ?></button>
                 </form>
             </div>
         <?php
@@ -70,11 +69,11 @@ class Events{
     function __construct(){
     ?>
         <div class="new">
-            <p class="detail">Please choose from the following the program you would like to add:</p>
+            <p class="detail"><?php global $translation; echo $translation['timely_events_menu']; ?></p>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                <button type="submit" name="Educational" value="Educational">Educational Program</button>
-                <button type="submit" name="Single_event" value="Single_event">Single Event Reminder</button>
-                <button type="submit" name="Iterable_event" value="Iterable_event">Iterable Program</button>
+                <button type="submit" name="Educational" value="Educational"><?php global $translation; echo $translation['Educational_Program']; ?></button>
+                <button type="submit" name="Iterable_event" value="Iterable_event"><?php global $translation; echo $translation['Iterable_Program']; ?></button>
+                <button type="submit" name="Single_event" value="Single_event"><?php global $translation; echo $translation['Single_Event_Reminder']; ?></button>
             </form>
         </div>
     <?php

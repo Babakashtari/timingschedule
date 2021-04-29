@@ -1,0 +1,19 @@
+Options -Indexes
+
+# ErrorDocument 404 /custom_errors/404.php
+# ErrorDocument 403 /custom_errors/403.php
+
+# 1 year cachability for fonts:
+<filesMatch ".(ttf|otf|woff|eot)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+
+# 1 Month cachability for pictures:
+<filesMatch ".(jpg|jpeg|png|gif|ico|svg)$">
+Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+
+# 1 day cachability for js and css:
+<filesMatch ".(js|css)$">
+Header set Cache-Control "max-age=86400, public"
+</filesMatch>

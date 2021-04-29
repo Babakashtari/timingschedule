@@ -9,8 +9,6 @@ const option_30 = document.querySelector('.new_program > form > fieldset > div#m
 const option_31 = document.querySelector('.new_program > form > fieldset > div#monthly input#day_31');     
 const error_30_and_31 = document.querySelector('.new_program > form > fieldset > div#monthly p#error_message_30_31');           
 
-console.log("entered here");
-
 function hider(event){
     for(let s = 0; s< iteration_containers.length; s++){
         if(iteration_radios[s] === event.target){

@@ -1,38 +1,38 @@
 <?php
     ?>
     <div class="new_program new_iterable_program">
-        <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+        <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" style="<?php echo $style['text-align']; ?>">
             <fieldset>
-                    <legend>New iterable event:</legend>
+                    <legend><?php echo $translation['New_iterable_event_form_legend']; ?></legend>
                     <div>
-                        <label class="compulsary" for="new_iterable_event_name">Name of the event:</label>
-                        <input type="text" name="new_iterable_event_name" id="new_iterable_event_name" placeholder="My class with MR. Park">
+                        <label class="compulsary" for="new_iterable_event_name"><?php echo $translation['event_name']; ?></label>
+                        <input type="text" name="new_iterable_event_name" id="new_iterable_event_name" placeholder="<?php echo $translation['new_iterable_event_name_placeholder']; ?>">
                     </div>
                     <div>
-                        <label class="compulsary" for="duration">Duration of the event in days:
+                        <label class="compulsary" for="duration"><?php echo $translation['duration_of_the_event_label']; ?>
                             <input type="number" name="duration" id="duration">
                         </label>
                         <span>
                             <label for="unknown">
                                 <input type="checkbox" name="duration" id="unknown" value="unknown">
-                                Unknown
+                                <?php echo $translation['Unknown']; ?>
                             </label>
                         </span>
                     </div>
                     <div>
                         <span>
-                            <p class="compulsary">Detail of the iteration:</p>
+                            <p class="compulsary"><?php echo $translation['Detail_of_the_iteration']; ?></p>
                             <label for="daily_selector">
                                 <input type="radio" name="iteration" id="daily_selector" value="daily">
-                                Daily
+                                <?php echo $translation['daily']; ?>
                             </label>
                             <label for="weekly_selector">
                                 <input type="radio" name="iteration" id="weekly_selector" value="weekly">
-                                Weekly
+                                <?php echo $translation['weekly']; ?>
                             </label>
                             <label for="monthly_selector">
                                 <input type="radio" name="iteration" id="monthly_selector" value="monthly">
-                                Monthly
+                                <?php echo $translation['monthly']; ?>
                             </label>
                             <!-- <label for="annually">annually:</label>
                                 <input type="radio" name="iteration" id="annually" value="annually">
@@ -40,62 +40,103 @@
                         </span>                    
                     </div>
                     <div class="iterator_container" id="daily">
-                        <p class="compulsary">Please choose the time of the day when the event occurs:</p>
+                        <p class="compulsary"><?php echo $translation['daily_label']; ?></p>
                         <span>
                             <label for="morning">
                                 <input type="checkbox" name="daily" id="morning" value="morning">
-                                Morning
+                                <?php echo $translation['Morning']; ?>
                             </label>
                             <label for="midday">
                                 <input type="checkbox" name="daily" id="midday" value="midday">
-                                Mid-day
+                                <?php echo $translation['Mid-day']; ?>
                             </label>
                             <label for="afternoon">
                                 <input type="checkbox" name="daily" id="afternoon" value="afternoon">
-                                Afternoon
+                                <?php echo $translation['Afternoon']; ?>
                             </label>
                             <label for="evening">
                                 <input type="checkbox" name="daily" id="evening" value="evening">
-                                Evening
+                                <?php echo $translation['Evening']; ?>
                             </label>
                             <label for="midnight">
                                 <input type="checkbox" name="daily" id="midnight" value="midnight">
-                                Midnight
+                                <?php echo $translation['Midnight']; ?>
                             </label>
                         </span>
                     </div>
                     <div class="iterator_container" id="weekly">
-                        <p class="compulsary">Please choose the time of the week when the event occurs:</p>
-                        <span>
-                            <label for="Monday">
-                                <input type="checkbox" name="weekly" id="Monday" value="Monday">
-                                Monday
-                            </label>
-                            <label for="Tuesday">
-                                <input type="checkbox" name="weekly" id="Tuesday" value="Tuesday">
-                                Tuesday
-                            </label>
-                            <label for="Wednesday">
-                                <input type="checkbox" name="weekly" id="Wednesday" value="Wednesday">
-                                Wednesday
-                            </label>
-                            <label for="Thursday">
-                                <input type="checkbox" name="weekly" id="Thursday" value="Thursday">
-                                Thursday
-                            </label>
-                            <label for="Friday">
-                                <input type="checkbox" name="weekly" id="Friday" value="Friday">
-                                Friday
-                            </label>
-                            <label for="Saturday">
-                                <input type="checkbox" name="weekly" id="Saturday" value="Saturday">
-                                Saturday
-                            </label>
-                            <label for="Sunday">
-                                <input type="checkbox" name="weekly" id="Sunday" value="Sunday">
-                                Sunday
-                            </label>
-                        </span>
+                        <p class="compulsary"><?php echo $translation['weekly_label']; ?></p>
+                        <?php
+                        // begin the week from Saturday if the language is Persian:
+                        if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
+                            ?>
+                            <span>
+                                <label for="Saturday">
+                                    <input type="checkbox" name="weekly" id="Saturday" value="Saturday">
+                                    <?php echo $translation['Saturday']; ?>
+                                </label>
+                                <label for="Sunday">
+                                    <input type="checkbox" name="weekly" id="Sunday" value="Sunday">
+                                    <?php echo $translation['Sunday']; ?>
+                                </label>
+                                <label for="Monday">
+                                    <input type="checkbox" name="weekly" id="Monday" value="Monday">
+                                    <?php echo $translation['Monday']; ?>
+                                </label>
+                                <label for="Tuesday">
+                                    <input type="checkbox" name="weekly" id="Tuesday" value="Tuesday">
+                                    <?php echo $translation['Tuesday']; ?>
+                                </label>
+                                <label for="Wednesday">
+                                    <input type="checkbox" name="weekly" id="Wednesday" value="Wednesday">
+                                    <?php echo $translation['Wednesday']; ?>
+                                </label>
+                                <label for="Thursday">
+                                    <input type="checkbox" name="weekly" id="Thursday" value="Thursday">
+                                    <?php echo $translation['Thursday']; ?>
+                                </label>
+                                <label for="Friday">
+                                    <input type="checkbox" name="weekly" id="Friday" value="Friday">
+                                    <?php echo $translation['Friday']; ?>
+                                </label>
+                            </span>
+                            <?php
+                        // begin the week from Monday if the language is other than Persian:
+                        }else{
+                            ?>
+                            <span>
+                                <label for="Monday">
+                                    <input type="checkbox" name="weekly" id="Monday" value="Monday">
+                                    <?php echo $translation['Monday']; ?>
+                                </label>
+                                <label for="Tuesday">
+                                    <input type="checkbox" name="weekly" id="Tuesday" value="Tuesday">
+                                    <?php echo $translation['Tuesday']; ?>
+                                </label>
+                                <label for="Wednesday">
+                                    <input type="checkbox" name="weekly" id="Wednesday" value="Wednesday">
+                                    <?php echo $translation['Wednesday']; ?>
+                                </label>
+                                <label for="Thursday">
+                                    <input type="checkbox" name="weekly" id="Thursday" value="Thursday">
+                                    <?php echo $translation['Thursday']; ?>
+                                </label>
+                                <label for="Friday">
+                                    <input type="checkbox" name="weekly" id="Friday" value="Friday">
+                                    <?php echo $translation['Friday']; ?>
+                                </label>
+                                <label for="Saturday">
+                                    <input type="checkbox" name="weekly" id="Saturday" value="Saturday">
+                                    <?php echo $translation['Saturday']; ?>
+                                </label>
+                                <label for="Sunday">
+                                    <input type="checkbox" name="weekly" id="Sunday" value="Sunday">
+                                    <?php echo $translation['Sunday']; ?>
+                                </label>
+                            </span>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <div class="iterator_container" id="monthly">
                         <p class="compulsary">Please choose the day of the month when the event occurs:</p>

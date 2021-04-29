@@ -47,6 +47,37 @@ header ul > li > form > button:hover{
     background-color: blue;
 }
 
+/* language selection button */
+.fa-language{
+    font-size: 1.25rem;
+}
+
+ul#language_container{
+    width: 100%;
+}
+
+ul#language_container > li{
+    display: block;
+}
+
+ul#language_container > li > button{
+    width:100%;
+    border-radius: 5px;
+    padding:1.5rem;
+    transition: 0.5s;
+}
+
+#language_form{
+    position: relative;
+}
+
+#language_form > ul{
+    position: absolute;
+}
+ul#language_container > li > button:hover{
+    background-color: blue;
+    color:white;
+}
 /* logo containing link */
 header ul.logo-container > li.logo > a{
     padding:0;
@@ -92,7 +123,12 @@ header ul.logo-container > li.logo-text > a:hover{
     color:rgb(69, 157, 215);
 }
 
-@media (max-width:500px){
+select#language{
+    border:none;
+    background-color: transparent;
+}
+
+@media (max-width:600px){
     /* for putting navigation elements below each other in the header */
     header ul{
         display:block;

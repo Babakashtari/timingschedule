@@ -1,8 +1,14 @@
 <?php require "PHP/objects/session.php"; ?>
 <?php require "PHP/login_signin_check.php"; ?>
+<?php require "PHP/languages/French.php"; ?>
+<?php require "PHP/languages/English.php"; ?>
+<?php require "PHP/languages/Persian.php"; ?>
+<?php require "PHP/languages/change_language.php"; ?>
 
 <?php echo "POST array includes: "; print_r($_POST); echo "<br>"; ?>
-<!-- <?php echo "SESSION array includes: "; print_r($_SESSION); echo "<br><br><br>"; ?> -->
+<?php echo "SESSION array includes: "; print_r($_SESSION); echo "<br><br><br>"; ?>
+<?php if(isset($_SESSION['location'])){echo $_SESSION['location']; } ?>
+
 <!-- <?php echo "POST array keys are:"; print_r(array_keys($_POST)); echo "<br>" ?> -->
 
 <!-- <?php 
@@ -31,9 +37,9 @@
     <link rel="stylesheet" href="CSS/add_new_program.css">
     <?php if(isset($_POST['Iranian_bank_account'])){ ?>    <link rel="stylesheet" href="CSS/iranian_new_bank_account.css"> <?php } ?>
 
-    <title>reminder</title>
+    <title><?php echo $translation['title']; ?></title>
 </head>
-<body>
+<body style="<?php echo $style['direction']; ?>">
     <!-- top time and date -->
     <?php require "PHP/header.php" ?>
     <main>
@@ -54,6 +60,7 @@
     
     </footer>
     <!-- loading scripts conditionally: -->
+    <script src="javascript/langauge_choose.js"></script>
     <?php if(isset($_POST['Iterable_event'])){ ?><script src="javascript/iterable_event.js"></script><?php } ?>
     <?php if(isset($_POST['Iranian_bank_account'])){ ?><script src="javascript/new_bank_account.js"></script> <?php } ?>
     <?php if(isset($_POST['Iranian_bank_account'])){?><script src="javascript/bank_images.js"></script>  <?php } ?>

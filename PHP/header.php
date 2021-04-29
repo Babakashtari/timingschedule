@@ -2,15 +2,32 @@
 ?>
     <header>
     <nav>
-        <ul class="logo-container">
+        <ul class="logo-container" style="<?php  ?>">
             <li class="logo">
                 <a href="index.php"><img src="photos/clock_icon.png" alt="clock logo" ></a> 
             </li>
-            <li class="logo-text">
-                <a href="index.php">Timing Schedule</a>
+            <li class="logo-text" style="<?php echo $style['right'] . $style['left']; ?>">
+                <a href="index.php"><?php echo $translation['logo_text']; ?></a>
             </li>
         </ul>
-        <ul>
+        <ul style="<?php echo $style['float']; ?>">
+            <li>
+                <form id="language_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                    <button id="show_language"><i class="fas fa-language"></i></button>
+                    <ul id="language_container" class="displayNone">
+                        <li>
+                            <button type="submit" name="language" value="EN" >EN</button>
+                        </li>
+                        <li>
+                            <button type="submit" name="language" value="FR" >FR</button>
+                        </li>
+                        <li>
+                            <button type="submit" name="language" value="FA" >FA</button>
+                        </li>
+                    </ul>
+                </form>
+            </li>
+
             <?php
                 // Generating the back key in the header menu: 
                 if(isset($_SESSION['pages_sequence_keys'])){ 

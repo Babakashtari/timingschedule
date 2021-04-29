@@ -7,6 +7,7 @@ class Session extends Validation {
     public $location;
     public $IP;
     public $user_ID;
+    public $langauge;
 
     function __construct($user, $country, $IP, $user_ID){
         $this->user_ID = $user_ID;
@@ -31,6 +32,17 @@ class Session extends Validation {
         $_SESSION['user_ID'] = $this->user_ID;
     }
     // 5
+    function adding_language_to_session(){
+        if(substr_count($this->location, "France") > 0){
+            $this->langauge = "FR";
+        }elseif(substr_count($this->location, "Iran") > 0){
+            $this->langauge = "FA";
+        }else{
+            $this->langauge = "EN";
+        }
+        $_SESSION['language'] = $this->langauge;
+    }
+    // 6
     function adding_user_pages_sequence(){
         $post_last_value = end($_POST);
         $post_keys = array_keys($_POST); 
@@ -82,12 +94,17 @@ class Session extends Validation {
             $session->adding_ip_to_session();
             // assigning user_ID value to the session:
             $session->adding_user_ID_to_session();
+            // assinging language to the session:
+            $session->adding_language_to_session();
         }
     }
     // adding the current page visit of the user to the pages_sequence:
     if(isset($_SESSION) && !empty($_SESSION) && isset($_POST) && !empty($_POST)){
-        $add_page_view = new Session($_SESSION['username'], $_SESSION['location'], $_SESSION['IP'], $_SESSION['user_ID']);
-        $add_page_view->adding_user_pages_sequence();
+        // when a user is signed in :
+        if(isset($_SESSION['username']) && isset($_SESSION['location']) && isset($_SESSION['IP']) && isset($_SESSION['user_ID'])){
+            $add_page_view = new Session($_SESSION['username'], $_SESSION['location'], $_SESSION['IP'], $_SESSION['user_ID']);
+            $add_page_view->adding_user_pages_sequence();    
+        }
     }
 
 
