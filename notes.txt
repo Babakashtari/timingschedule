@@ -1,6 +1,8 @@
 forgot password section
 didn't receive your activation email? send it again here
-back button
+putting all regex formats into a seperate php file.
+writing dynamic regex files for multiple languages.
+چک کنم که تمامی فرم ها بعد از نشان دادن ارور اطلاعات کاربری را در خود نگه می دارند و پاک نمی شوند
 
 
 for web-based version of this site: 

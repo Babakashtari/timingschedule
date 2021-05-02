@@ -139,31 +139,32 @@
                         ?>
                     </div>
                     <div class="iterator_container" id="monthly">
-                        <p class="compulsary">Please choose the day of the month when the event occurs:</p>
+                        <p class="compulsary"><?php echo $translation['monthly_label']; ?></p>
                         <span>
                             <?php
                                function add_days_of_the_month(){
+                                global $translation;
                                 for($i=1; $i<=31; $i++){
                                     if($i<4){
                                         if($i===1){
                                         ?>
                                             <label for="<?php echo "day_" . $i ; ?>">
                                                 <input type="checkbox" name="monthly" id="<?php echo "day_" . $i ; ?>" value="<?php echo $i ; ?>">
-                                                <?php echo $i . 'st:'; ?>
+                                                <?php echo $i . $translation['ordinal_number_first']; ?>
                                             </label>    
                                         <?php
                                         }elseif($i===2){
                                         ?>
                                             <label for="<?php echo "day_" . $i ; ?>">
                                                 <input type="checkbox" name="monthly" id="<?php echo "day_" . $i ; ?>" value="<?php echo $i ; ?>">
-                                                <?php echo $i . 'nd:'; ?>
+                                                <?php echo $i . $translation['ordinal_number_second']; ?>
                                             </label>
                                         <?php
                                         }else{
                                         ?>
                                             <label for="<?php echo "day_" . $i ; ?>">
                                                 <input type="checkbox" name="monthly" id="<?php echo "day_" . $i ; ?>" value="<?php echo $i ; ?>">
-                                                <?php echo $i . 'rd:'; ?>
+                                                <?php echo $i . $translation['ordinal_number_third']; ?>
                                             </label>
                                         <?php
                                         }
@@ -171,7 +172,7 @@
                                     ?>
                                         <label for="<?php echo "day_" . $i ; ?>">
                                             <input type="checkbox" name="monthly" id="<?php echo "day_" . $i ; ?>" value="<?php echo $i ; ?>">
-                                            <?php echo $i . 'th:'; ?>
+                                            <?php echo $i . $translation['more_than_three_ordinal_numbers']; ?>
                                         </label>
                                     <?php
                                     }
@@ -179,47 +180,47 @@
                                }
                                add_days_of_the_month();
                             ?>
-                            <p class="displayNone" id="error_message_30_31">Careful, month with less than 30 days may ignore your event iteration</p>
+                            <p class="displayNone" id="error_message_30_31"><?php echo $translation['30_31_days_selection_error']; ?></p>
                         </span>
                     </div>
                     <div>
-                        <p>Do we need your confirmation after an iteration?</p>
+                        <p><?php echo $translation['confirmation_label']; ?></p>
                         <span>
                             <label for="confirmation_YES">
-                                <input type="radio" name="confirmation" id="confirmation_YES" value="YES">Yes
+                                <input type="radio" name="confirmation" id="confirmation_YES" value="YES"> <?php echo $translation['YES']; ?>
                             </label>
                             <label for="confirmation_NO">
-                                <input type="radio" name="confirmation" id="confirmation_NO" value="NO">No
+                                <input type="radio" name="confirmation" id="confirmation_NO" value="NO"> <?php echo $translation['NO']; ?>
                             </label>
                         </span>
                     </div>
                     <div>
-                        <p>Do you receive money after an iteration?</p>
+                        <p><?php echo $translation['money_inquiry_label']; ?></p>
                         <span id="money_options">
                             <label for="money_YES">
-                                <input type="radio" name="money_confirmation" id="money_YES" value="YES">Yes
+                                <input type="radio" name="money_confirmation" id="money_YES" value="YES"> <?php echo $translation['YES']; ?>
                             </label>
                             <label for="money_NO">
-                                <input type="radio" name="money_confirmation" id="money_NO" value="NO">No
+                                <input type="radio" name="money_confirmation" id="money_NO" value="NO"> <?php echo $translation['NO']; ?>
                             </label>
                         </span>
                     </div>
                     <div class="displayNone" id="money_amount_container">
-                        <label for="amount_of_money_received" class="compulsary">How much do you receive per iteration?
+                        <label for="amount_of_money_received" class="compulsary"><?php echo $translation['amount_of_money_received_label']; ?>
                             <input type="number" name="amount_of_money_received" id="amount_of_money_received">
                         </label>
-                        <p class="compulsary">choose your currency:</p>
+                        <p class="compulsary"><?php echo $translation['currency_choice_label']; ?></p>
                         <select name="currency" id="currency">
-                            <option value="US_Dollar">US Dollars</option>
-                            <option value="CA_Dollar">CA Dollars</option>
+                            <option value="US_Dollar"><?php echo $translation['US_Dollars']; ?></option>
+                            <option value="CA_Dollar"><?php echo $translation['CA_Dollars']; ?></option>
 
-                            <option value="Euros">Euros</option>
-                            <option value="Ir_Rial">Ir Rials</option>
-                            <option value="Ir_Toman">Ir Tomans</option>
+                            <option value="Euros"><?php echo $translation['Euros']; ?></option>
+                            <option value="Ir_Rial"><?php echo $translation['Ir_Rials']; ?></option>
+                            <option value="Ir_Toman"><?php echo $translation['Ir_Tomans']; ?></option>
                         </select>
                     </div>
                     <div>
-                        <button type="submit" name="add_new_iterable_event" value="new_iterable_event_added">Add</button>
+                        <button type="submit" name="add_new_iterable_event" value="new_iterable_event_added"><?php echo $translation['Add']; ?></button>
                     </div>
             </fieldset>
         </form>

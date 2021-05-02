@@ -1,6 +1,5 @@
 <?php 
 
-require "data_clean_up.php";
 
 class User extends Data_clean_up{
     public $username;

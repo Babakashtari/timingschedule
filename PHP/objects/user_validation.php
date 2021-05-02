@@ -1,9 +1,13 @@
 <?php 
 
 require "users.php";
+require "PHP/languages/French.php";
+require "PHP/languages/English.php";
+require "PHP/languages/Persian.php";
 
     // validating input fields and finding/displaying of errors:
     class Validation extends User{
+        
         public $IP_address;
         public $location;
         public $hashed_pass;
@@ -16,19 +20,25 @@ require "users.php";
         function email_validation(){
             // checking if the cleaned up email input is not empty:
             if(!$this->email){
-                array_push($this->errors, "<p class='error'>Your email does not have a valid format.</p>");
+                global $translation;
+                $email_format_error = $translation['email_format_error'];
+                array_push($this->errors, "<p class='error'>$email_format_error</p>");
             }
         }
         // 2
         function username_validation(){
             if(!$this->username){
-                array_push($this->errors, "<p class='error'>Username should begin with a capital letter and have at least 3 characters.</p>");
+                global $translation;
+                $username_format_error = $translation['username_format_error'];
+                array_push($this->errors, "<p class='error'>$username_format_error</p>");
             }
         }
         // 3
         function password_validation(){
             if(!$this->password){
-                array_push($this->errors,"<p class='error'>Password should only contain lowercase, upercase and numbers and have at least 5 to 15 characters.</p>");
+                global $translation;
+                $password_format_error = $translation['password_format_error'];
+                array_push($this->errors,"<p class='error'>$password_format_error</p>");
             }
         }
         // checking if the data is entered correctly for loging in:
@@ -40,6 +50,7 @@ require "users.php";
                 if ($connection->connect_error) {
                     die("Connection failed: " . $connection->connect_error);
                 }else{
+                    global $translation;
                     // check database:
                     $check_query = "SELECT * FROM users WHERE username='$this->username' ";
                     $result = $connection->query($check_query);
@@ -49,19 +60,32 @@ require "users.php";
                         $associative_array = $result->fetch_assoc();
                         // check if the user has activated his account:
                         if(!empty($associative_array['registry_token'])){
-                            array_push($this->errors,"<p class='error'>Dear <i>$this->username</i> , You have not activated your account yet. Please visit your email.</p>");
+                            // adding dear user dynamically according to the chosen language:
+                            if($_SESSION['language'] === "EN"){
+                                $dear_user = "Dear <i>$this->username</i> , ";
+                            }elseif($_SESSION['language'] === "FR"){
+                                $dear_user = "Cher <i>$this->username</i> , ";
+                            }else{
+                                $dear_user = "<i>$this->username</i> عزیز، ";
+                            }
+
+                            $email_activation_error = $translation['email_activation_error'];
+                            array_push($this->errors,"<p class='error'>$dear_user $email_activation_error</p>");
                         }else{
                             if(!password_verify($this->password, $associative_array['pass'])){
-                                array_push($this->errors,"<p class='error'>Your password does not match. Please retry.</p>");
+                                $password_no_match_error = $translation['password_no_match_error'];
+                                array_push($this->errors,"<p class='error'>$password_no_match_error</p>");
                             }else{
                                 // successfully logged in:
-                                array_push($this->success_messages, "<p class='success'>Congradulations, you have successfully logged in.</p>");
+                                $login_success_message = $translation['login_success_message'];
+                                array_push($this->success_messages, "<p class='success'>$login_success_message</p>");
                                 $this->user_ID = $associative_array['ID'];
                                 // devoting login credentials to session values are handled directly from Session class in session.php file
                             }    
                         }
                     }else{
-                        array_push($this->errors,"<p class='error'>No registered user found with the username you entered.</p>");
+                        $no_user_found_error = $translation['no_user_found_error'];
+                        array_push($this->errors,"<p class='error'>$no_user_found_error</p>");
                     }
                 }    
             }
@@ -76,16 +100,20 @@ require "users.php";
             if ($connection->connect_error) {
                 die("Connection failed: " . $connection->connect_error);
             }else{
+                global $translation;
                 // check the database for dublicate content:
                 $check_query = " SELECT * FROM users WHERE username='$this->username' OR email='$this->email' ";
                 $result = $connection->query($check_query);
                 if($result->num_rows > 0){
                     $associative_array = $result->fetch_assoc();
                     if($associative_array['username'] === $this->username){
-                        array_push($this->errors, "<p class='error'>Username already exists. Please choose another one.</p>");
+                        $user_already_exists_error = $translation['user_already_exists_error'];
+                        array_push($this->errors, "<p class='error'>$user_already_exists_error</p>");
                     }
                     if($associative_array['email'] === $this->email){
-                        array_push($this->errors, "<p class='error'>Email already exists. Please choose another one.</p>");
+                        $email_already_exists_error = $translation['email_already_exists_error'];
+
+                        array_push($this->errors, "<p class='error'>$email_already_exists_error</p>");
                     }
                 }
                 // inserting user data into the database if there was no errors:
@@ -103,10 +131,24 @@ require "users.php";
                     $connection->close();
 
                     if(!$result){
-                        array_push($this->errors, "<p class='error'>something happened and signin failed.</p>");
+                        $something_went_wrong = $translation['something_went_wrong'];
+                        array_push($this->errors, "<p class='error'>$something_went_wrong</p>");
                     }else{
+                        if($_SESSION['language'] === "EN"){
+                            $dear_user = "Dear <i>$this->username</i>, ";
+                            $message_sent_announcement = "A message is sent to <i> $this->email </i>.";
+                        }elseif($_SESSION['language'] === "FR"){
+                            $dear_user = "Cher <i>$this->username</i>, ";
+                            $message_sent_announcement = "Un message est envoyé à <i> $this->email </i>.";
+                        }else{
+                            $dear_user = "<i>$this->username</i> عزیز، ";
+                            $message_sent_announcement = "پیامی به <i> $this->email </i> ارسال شده است.";
+                        }
+                        $registration_appreciation = $translation['registration_appreciation'];
+                        $check_email_request = $translation['check_email_request'];
+                        
                         // success message:
-                        array_push($this->success_messages, "<p class='success'>Dear <i> $this->username </i>, thank you for your registration. A message is sent to <i> $this->email </i>. Please check your email and click the link inside it to activate your account. Without activation, you cannot sign in.</p>");
+                        array_push($this->success_messages, "<p class='success'>$dear_user $registration_appreciation. $message_sent_announcement $check_email_request</p>");
 
                         // sending verification email:
                         require "email.php";

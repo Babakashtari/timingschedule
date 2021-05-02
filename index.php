@@ -1,5 +1,9 @@
+<?php require "PHP/objects/regex.php"; ?>
+
+<?php require "PHP/objects/data_clean_up.php"; ?>
 <?php require "PHP/objects/session.php"; ?>
 <?php require "PHP/login_signin_check.php"; ?>
+
 <?php require "PHP/languages/French.php"; ?>
 <?php require "PHP/languages/English.php"; ?>
 <?php require "PHP/languages/Persian.php"; ?>

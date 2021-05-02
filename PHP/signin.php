@@ -5,21 +5,21 @@ if(!isset($_SESSION['username']) && $need_signin){
     <div class="signin">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
             <fieldset>
-                <legend>Sign in Here:</legend>
+                <legend><?php echo $translation['sign_in_legend']; ?></legend>
                 <div>
-                    <label for="username">Username:</label>
+                    <label for="username"><?php echo $translation['Username']; ?></label>
                     <input type="text" name="username" id="username" placeholder="mike">
                 </div>
                 <div>
-                    <label for="password">Password:</label>
+                    <label for="password"><?php echo $translation['password']; ?></label>
                     <input type="password" name="password" id="password">
                 </div>
                 <div>
-                    <button type="submit" name="signin" value="signed_in">sign in</button>
+                    <button type="submit" name="signin" value="signed_in"><?php echo $translation['sign_in_submit']; ?></button>
                 </div>
                 <div>
-                    <p>Not a member? 
-                        <button type="submit" name="register" value="register">Register here</button>
+                    <p><?php echo $translation['Not_a_member']; ?> 
+                        <button type="submit" name="register" value="register"><?php echo $translation['Register_here']; ?></button>
                     </p>
                 </div>
                 <!-- if the user entered here after trying the add new button: -->

@@ -1,5 +1,7 @@
 <?php 
 
+// require "PHP/objects/regex.php";
+
 class Iranian_bank_account_submit{
     public $errors = [];
     public $column_values = [];
@@ -11,9 +13,11 @@ class Iranian_bank_account_submit{
             die("Connection failed: " . $connection->connect_error);
         }else{
             if(isset($_POST['Bank_name'])){
+                global $regular_expressions;
+                global $translation;
                 $bank_id = $_POST['Bank_name'];
                 $data_clean_up = new Data_clean_up();
-                $bank_id = $data_clean_up->test_input('/^\d{1,8}$/', $bank_id);
+                $bank_id = $data_clean_up->test_input($regular_expressions['bank_id'], $bank_id);
                 $check_query = "SELECT Bank_name FROM banks WHERE Bank_ID='$bank_id' ";
                 $result = $connection->query($check_query);
 
@@ -23,26 +27,30 @@ class Iranian_bank_account_submit{
                     array_push($this->column_names, "Bank_ID");
                     array_push($this->column_values, $bank_id);
                 }else{
-                    array_push($this->errors, "<p class='error'>The Bank name does not match.</p>");
+                    $bank_id_error =  $translation['Bank_ID_error'];
+                    array_push($this->errors, "<p class='error'>$bank_id_error</p>");
                 }
                 if(!empty($_POST['account_holder'])){
-                    $account_owner = $data_clean_up->test_input('/^([A-Z][a-z]{2,9}\s*){1,5}$/',$_POST['account_holder']);
+                    $account_owner = $data_clean_up->test_input($regular_expressions['account_owner'], $_POST['account_holder']);
                     if(empty($account_owner)){
-                        array_push($this->errors, "<p class='error'>Account owner should begin with a capital letter and only contain space and letters .</p>");
+                        $account_owner_error = $translation['account_owner_error'];
+                        array_push($this->errors, "<p class='error'>$account_owner_error</p>");
                     }else{
                         array_push($this->column_names, "Account_owner");
                         array_push($this->column_values, $account_owner);
                     }
                 }elseif(!empty($_POST['account_holders'])){
-                    $account_owners = $data_clean_up->test_input('/^(( *[A-Z][a-z]{2,9} *){1,5},*){2,10}$/',$_POST['account_holders']);
+                    $account_owners = $data_clean_up->test_input($regular_expressions['account_owners'], $_POST['account_holders']);
                     if(empty($account_owners)){
-                        array_push($this->errors,"<p class='error'>Name of each owner should begin with a capital letter. Also seperate owner's names with a comma: ,</p>");
+                        $multiple_owners_error = $translation['multiple_owners_error'];
+                        array_push($this->errors,"<p class='error'>$multiple_owners_error</p>");
                     }else{
                         array_push($this->column_names, "Account_owner");
                         array_push($this->column_values, $account_owners);
                     }
                 }else{
-                    array_push($this->errors, "<p class='error'>At least an account owner should be specified.</p>");
+                    $minimum_one_owner_error = $translation['minimum_one_owner_error'];
+                    array_push($this->errors, "<p class='error'>$minimum_one_owner_error</p>");
                 }
                 if(isset($_POST['corporate']) && $_POST['corporate'] === "YES"){
                     $corporate = "YES";
@@ -53,9 +61,10 @@ class Iranian_bank_account_submit{
                 array_push($this->column_values, $corporate);
 
                 if(!empty($_POST['branch'])){
-                    $branch_name = $data_clean_up->test_input('/^[A-Za-z0-9 ]{3,}$/', $_POST['branch']);
+                    $branch_name = $data_clean_up->test_input($regular_expressions['branch_name'], $_POST['branch']);
                     if(empty($branch_name)){
-                        array_push($this->errors,"<p class='error'>Branch names should only contain letters and numbers.</p>");
+                        $branch_name_error = $translation['branch_name_error'];
+                        array_push($this->errors,"<p class='error'>$branch_name_error</p>");
                     }else{
                         array_push($this->column_names, "Branch_name");
                         array_push($this->column_values, $branch_name);
@@ -63,9 +72,10 @@ class Iranian_bank_account_submit{
                 }
                 if(!empty($_POST['account_number'])){
                     // format for the account number:
-                    $account_number = $data_clean_up->test_input('/^\d{8,}$/', $_POST['account_number']);
+                    $account_number = $data_clean_up->test_input($regular_expressions['account_number'], $_POST['account_number']);
                     if(empty($account_number)){
-                        array_push($this->errors, "<p class='error'>Account number should contain at least 8 digits without any space or dash.</p>");
+                        $account_number_error = $translation['account_number_error'];
+                        array_push($this->errors, "<p class='error'>$account_number_error</p>");
                     }else{
                         $account_number_query_check = "SELECT Account_number FROM accounts WHERE Account_number = '$account_number' ";
                         $account_number_query_result = $connection->query($account_number_query_check);
@@ -80,7 +90,7 @@ class Iranian_bank_account_submit{
                     array_push($this->errors, "<p class='error'>An account number must be specified.</p>");
                 }
                 if(!empty($_POST['card_number'])){
-                    $card_number = $data_clean_up->test_input('/^\d{16}$/', $_POST['card_number']);
+                    $card_number = $data_clean_up->test_input($regular_expressions['card_number'], $_POST['card_number']);
                     if(empty($card_number)){
                         array_push($this->errors, "<p class='error'>Card number should contain 16 digits. No space or dash required.</p>");
                     }else{
@@ -95,7 +105,7 @@ class Iranian_bank_account_submit{
                     }
                 }
                 if(!empty($_POST['Shaba_number'])){
-                    $shaba = $data_clean_up->test_input('/^IR[0-9]{24}$/', strtoupper($_POST['Shaba_number']));
+                    $shaba = $data_clean_up->test_input($regular_expressions['shaba_number'], strtoupper($_POST['Shaba_number']));
                     if(empty($shaba)){
                         array_push($this->errors, "<p class='error'>Shaba number should begin with IR followed by 24 digits.</p>");
                     }else{
@@ -110,16 +120,20 @@ class Iranian_bank_account_submit{
                     }
                 }
                 if(!empty($_POST['Initial_deposit'])){
-                    $initial_deposit = $data_clean_up->test_input('/^\d{1,}$/', $_POST['Initial_deposit']);
+                    $initial_deposit = $data_clean_up->test_input($regular_expressions['initial_deposit'], $_POST['Initial_deposit']);
                     if(empty($initial_deposit)){
                         array_push($this->errors, "<p class='error'>The deposit should only be a number.</p>");
                     }else{
-                        array_push($this->column_names, "Initial_deposit");
-                        array_push($this->column_values, $initial_deposit);
+                        if($initial_deposit < 0){
+                            array_push($this->errors, "<p class='error'>The deposit should be a positive number.</p>");
+                        }else{
+                            array_push($this->column_names, "Initial_deposit");
+                            array_push($this->column_values, $initial_deposit);    
+                        }
                     }
                 }
                 if(!empty($_POST['descriptions'])){
-                    $descriptions = $data_clean_up->test_input('/[\d\w\s=@*#\/%-]{1,}/', $_POST['descriptions']);
+                    $descriptions = $data_clean_up->test_input($regular_expressions['descriptions'], $_POST['descriptions']);
                     if(empty($descriptions)){
                         array_push($this->errors, "<p class='error'>allowed characters for description are '/-_=%$@' </p>");
                     }else{
@@ -128,7 +142,7 @@ class Iranian_bank_account_submit{
                     }
                 }
                 if(!empty($_POST['currency'])){
-                    $currency = $data_clean_up->test_input('/^[A-Za-z0-9\/, -_=%$@]{1,}$/', $_POST['currency']);
+                    $currency = $data_clean_up->test_input($regular_expressions['currency'], $_POST['currency']);
                     if(empty($currency)){
                         array_push($this->errors, "<p class='error'>Currency is not entered correctly.</p>");
                     }else{

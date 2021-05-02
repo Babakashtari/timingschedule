@@ -62,7 +62,7 @@
 
 .new_program > form > fieldset > div#daily > span > label{
     display:inline-block;
-    width:90px;
+    width:100px;
 }
 .new_program > form > fieldset > div#weekly > span > label{
     display:inline-block;
@@ -70,7 +70,7 @@
 }
 .new_program > form > fieldset > div#monthly > span > label{
     display:inline-block;
-    width:60px;
+    width:70px;
 }
 p#error_message_30_31{
     color:Red;
