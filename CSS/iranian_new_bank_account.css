@@ -12,10 +12,8 @@ div#bank_image_container{
     width:50px;
     height:50px;
     display: inline-block;
-    /* background-image: linear-gradient(green 33%, white 33%, white 66%, red 66%); */
     position: absolute;
     bottom:0;
-    /* right:10px; */
 }
 input#new_bank_name{
     width:100%;

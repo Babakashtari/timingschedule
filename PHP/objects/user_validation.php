@@ -77,8 +77,8 @@ require "PHP/languages/Persian.php";
                                 array_push($this->errors,"<p class='error'>$password_no_match_error</p>");
                             }else{
                                 // successfully logged in:
-                                $login_success_message = $translation['login_success_message'];
-                                array_push($this->success_messages, "<p class='success'>$login_success_message</p>");
+                                // $login_success_message = $translation['login_success_message'];
+                                // array_push($this->success_messages, "<p class='success'>$login_success_message</p>");
                                 $this->user_ID = $associative_array['ID'];
                                 // devoting login credentials to session values are handled directly from Session class in session.php file
                             }    

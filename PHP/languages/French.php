@@ -6,18 +6,18 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "dear" => "Cher",
         "logo_text" => "Timing Schedule",
         "first_menu_text" => "Choisissez ce que vous vouliez:",
-        "business_menu" => "programmes commerciaux",
-        "timely_Events" => "évenements à intervalle de temps fixe",
+        "business_menu" => "Programmes commerciaux",
+        "timely_Events" => "Evenements à intervalle de temps fixe",
         "FA" => "PER",
         "EN" => "ANG",
         "FR" => "FR",
         "business_submenu" => "Choisissez le programme commercial que vous désirez commencer:",
         "New_Accounting_Program" => "Nouveau compte de comptabilité",
-        "New_Bank_Account" => "nouveau compte bancaire",
+        "New_Bank_Account" => "Nouveau compte bancaire",
         "Add_new_bank_account" => "Choisissez quel compte bancaire vous désirez ajouter:",
         "Visa_card" => "Carte Visa",
         "Master_Card" => "Carte Master",
-        "Local_Banks" => "banques locales",    
+        "Local_Banks" => "Banques locales",    
 
         "Bank_country" => "Choisissez le pays d'origin de votre compte bancaire:",
         "Iran" => "l'Iran",
@@ -112,6 +112,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
 
         "New_bank_account_form_legend" => "Nouveau compte bancaire iranien :",
         "Bank_name" => "Nom de la banque :",
+        "Bank_name_placeholder" => "ex: Eghtesade Novin",
         "not_in_the_list_above" => "Pas dans la liste ?",
         "Bank_Logo" => "Logo de la banque :",
         "Add_Bank_submit" => "Ajouter la Bank",
@@ -137,23 +138,46 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "New_account_submit" => "Ajouter le compte",
 
         "Bank_ID_error" => "Nom de la banque est incorrecte.",
-        "account_owner_error" => "Le nom du propriétaire du compte doit commencer en majuscule et contenir uniquement des lettres et space.",
-        "multiple_owners_error" => "Le nom des propriétaires doivent commencer en majuscule et se séparer par virgule : ,",
+        "account_owner_error" => "Le nom du propriétaire du compte doit commencer en majuscule et contenir uniquement des lettres et de l'espace. Maximum 5 mots et chaque mots contenant 10 lettres.",
+        "multiple_owners_error" => "Le nom des propriétaires doivent commencer en majuscule et se séparer par virgule. Maximum 10 propriétaires permis.",
         "minimum_one_owner_error" => "Au moins un propriétaires du compte est nécessaire.",
-        "branch_name_error" => "Le succursale doit uniquement contenir des lettres et des nombres.",
+        "branch_name_error" => "Les characters permis pour la succursale sont des lettres, des nombres underscore et tiré.",
         "account_number_error" => "Le numéro de compte doit être uniquement en nombre et contenir plus de 8 chiffres.",
+        "same_account_number_error" => "Ce numéro de compte est déjà enregistré.",
+        "minimum_one_account_number_error" => "Le numéro de compte est obligatoire.",
+        "card_number_format_error" => "Numéro de carte bancaire doit contenir 16 chiffres. Aucun espace ou tiré requis.",
+        "same_card_number_error" => "Le même numéro de carte existe déjà. Choisissez-en un nouveau!",
+        "shaba_format_error" => "Shaba du compte doit commencer par IR et suivant 24 chiffres.",
+        "same_shaba_number_error" => "Un numéro Shaba identique est retrouvé. Utilisez-en un nouveau.",
+        "deposit_format_error" => "Le dépot initial doit être un nombre positif.",
+        "descriptions_error" => "Les lettres, les nombres et _ sont uniquement permis pour la description.",
+        "currency_error" => "La monnaie n'est pas correctement entrée.",
+        "currency_empty_error" => "La monnaie ne peut pas être vide.",
+        "Account_added_successfully" => "Le compte est ajouté avec du succès.",
+
+        "image_required_error" => "Joignez une image en tant qu'icon de la banque.",
+        "allowed_image_format_error" => "extensions permises pour l'image sont uniquement: JPG et PNG.",
+        "image_file_size_error" => "Les images ne doivent pas excéder 500KB.",
+        "doublicate_bank_name_error" => "Ce nom de la banque existe déjà.",
+        "new_bank_added_successfully" => "Merci de votre contribution. Patientez jusqu'à ce que l'on vérifie votre banque.",
+        "new_bank_success_message" => "Nouvelle banque ajoutée avec du succès.",
+        "bank_name_format_error" => "Nom de la banque doit commencer en majuscule et limité à moins de 8 mots et 15 lettres dans chaque mot.",
+        "Bank_name_empty_error" => "Nom de la banque et l'image logo de la banque sont obligatores.",
 
 
     ]; 
-    $style = [
-        "direction" => "direction: ltr;",
-        "float" => "float: right;",
-        "right" => "right: 0;",
-        "image_alignment" => "right: 10px;",
-        "left" => "left: 100%;",
-        "text-align" => "text-align:left;",
+    // $style = [
+    //     "direction" => "direction: ltr;",
+    //     "float" => "float: right;",
+    //     "right" => "right: 0;",
+    //     "image_alignment" => "right: 10px;",
+    //     "left" => "left: 100%;",
+    //     "text-align" => "text-align:left;",
+    //     "font-family" => " font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;",
+    //     "font-size-normal" => "font-size:1rem;",
+    //     "font-size-bold" => "font-size:1rem;"
 
-    ];
+    // ];
 }
 
 ?>

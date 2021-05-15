@@ -1,12 +1,12 @@
 <?php require 'PHP/objects/add_new_bank_by_users.php'; ?>
 
     <div class="new_program">
-        <form style="<?php echo $style['text-align']; ?>" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
             <fieldset>
                     <legend><?php echo $translation['New_bank_account_form_legend']; ?></legend>
                     <div id="Bank_name_container">
                         <p class="compulsary"><?php echo $translation['Bank_name']; ?></p>
-                        <div id="bank_image_container" style="<?php echo $style['image_alignment']; ?>">
+                        <div id="bank_image_container">
                         <img src="" width="100%" height="100%">
                             <?php require "PHP/objects/bank_images_generator.php";
                                 if(isset($_POST['Iranian_bank_account'])){
@@ -45,7 +45,7 @@
                     </div>
                     <div class="displayNone" id="add_bank">
                         <label class="compulsary" for="new_bank_name"><?php echo $translation['Bank_name']; ?>
-                            <input  type="text" name="new_bank_name" id="new_bank_name" placeholder="ex: Eghtesade Novin">
+                            <input  type="text" name="new_bank_name" id="new_bank_name" placeholder="<?php echo $translation['Bank_name_placeholder']; ?>" value="<?php if(isset($_POST['new_bank_name'])){echo $_POST['new_bank_name'];} ?>">
                         </label>
                         <label class="compulsary" for="upload_bank_image"><?php echo $translation['Bank_Logo']; ?>
                             <input type="file" name="uploaded_bank_image" id="uploaded_bank_image">
@@ -69,7 +69,7 @@
                     </div>
                     <div id="multiple_owners_div" class="displayNone">
                         <p class="compulsary"><?php echo $translation['multiple_owners_label']; ?></p>
-                            <textarea rows="10" name="account_holders" id="account_holders" placeholder="<?php echo $translation['multiple_owners_placeholder']; ?>"></textarea>
+                            <textarea rows="10" name="account_holders" id="account_holders" placeholder="<?php echo $translation['multiple_owners_placeholder']; ?>"><?php if(isset($_POST['account_holders'])){echo $_POST['account_holders'];} ?></textarea>
                     </div>
                     <div>
                         <label for="branch"><?php echo $translation['Branch_name_label']; ?>
@@ -83,7 +83,7 @@
                     </div>
                     <div>
                         <label for="card_number"><?php echo $translation['Card_number_label']; ?>
-                            <input type="text" name="card_number" id="card_number" value="<?php if(isset($_POST['card_number'])){echo $_POST['card_number'];} ?>" placeholder="<?php echo $translation['Card_number_placeholder']; ?>">
+                            <input type="text" name="card_number" id="card_number" value="<?php if(isset($_POST['card_number'])){echo $_POST['card_number'];} ?>" placeholder="<?php echo $translation['Card_number_placeholder']; ?>" >
                         </label>
                     </div>
                     <div>
@@ -93,7 +93,7 @@
                     </div>
                     <div>
                         <label for="Initial_deposit"><?php echo $translation['Initial_Deposit_label']; ?>
-                            <input type="text" name="Initial_deposit" id="Initial_deposit" value="<?php if(isset($_POST['Initial_deposit'])){echo $_POST['Initial_deposit'];} ?>" placeholder="<?php echo $translation['Initial_deposit_placeholder']; ?>">
+                            <input type="text" class="numerical_value" name="Initial_deposit" id="Initial_deposit" value="<?php if(isset($_POST['Initial_deposit'])){echo $_POST['Initial_deposit'];} ?>" placeholder="<?php echo $translation['Initial_deposit_placeholder']; ?>">
                         </label>
                     </div>
 

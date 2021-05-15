@@ -2,15 +2,15 @@
 ?>
     <header>
     <nav>
-        <ul class="logo-container" style="<?php  ?>">
+        <ul class="logo-container" >
             <li class="logo">
                 <a href="index.php"><img src="photos/clock_icon.png" alt="clock logo" ></a> 
             </li>
-            <li class="logo-text" style="<?php echo $style['right'] . $style['left']; ?>">
+            <li class="logo-text">
                 <a href="index.php"><?php echo $translation['logo_text']; ?></a>
             </li>
         </ul>
-        <ul style="<?php echo $style['float']; ?>">
+        <ul>
             <li>
                 <form id="language_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                     <button id="show_language"><i class="fas fa-language"></i></button>

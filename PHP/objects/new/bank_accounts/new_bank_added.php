@@ -13,7 +13,7 @@ class Iranian_bank_account_submit{
             die("Connection failed: " . $connection->connect_error);
         }else{
             if(isset($_POST['Bank_name'])){
-                global $regular_expressions;
+                $regular_expressions = get_regular_expression($_SESSION['language']);
                 global $translation;
                 $bank_id = $_POST['Bank_name'];
                 $data_clean_up = new Data_clean_up();
@@ -80,24 +80,31 @@ class Iranian_bank_account_submit{
                         $account_number_query_check = "SELECT Account_number FROM accounts WHERE Account_number = '$account_number' ";
                         $account_number_query_result = $connection->query($account_number_query_check);
                         if($account_number_query_result->num_rows > 0){
-                            array_push($this->errors, "<p class='error'>An account with the same account number is already registered.</p>");
+                            $same_account_number_error = $translation['same_account_number_error'];
+                            array_push($this->errors, "<p class='error'>$same_account_number_error</p>");
                         }else{
                             array_push($this->column_names, "Account_number");
                             array_push($this->column_values, $account_number);    
                         }
                     }
                 }else{
-                    array_push($this->errors, "<p class='error'>An account number must be specified.</p>");
+                    $minimum_one_account_number_error = $translation['minimum_one_account_number_error'];
+                    array_push($this->errors, "<p class='error'>$minimum_one_account_number_error</p>");
                 }
                 if(!empty($_POST['card_number'])){
-                    $card_number = $data_clean_up->test_input($regular_expressions['card_number'], $_POST['card_number']);
+                    // replace all spaces in the card number
+                    $card_number = str_replace(" ","",$_POST['card_number']);
+                    $card_number = $data_clean_up->test_input($regular_expressions['card_number'], $card_number);
                     if(empty($card_number)){
-                        array_push($this->errors, "<p class='error'>Card number should contain 16 digits. No space or dash required.</p>");
+                        $card_number_format_error = $translation['card_number_format_error'];
+                        $card_number_format_error = $translation['card_number_format_error'];
+                        array_push($this->errors, "<p class='error'>$card_number_format_error</p>");
                     }else{
                         $card_number_query_check = "SELECT Card_number FROM accounts WHERE Card_number = '$card_number' ";
                         $card_number_query_result = $connection->query($card_number_query_check);
                         if($card_number_query_result->num_rows > 0){
-                            array_push($this->errors, "<p class='error'>The same card number already registered to another account.</p>");
+                            $same_card_number_error = $translation['same_card_number_error'];
+                            array_push($this->errors, "<p class='error'>$same_card_number_error</p>");
                         }else{
                             array_push($this->column_names, "Card_number");
                             array_push($this->column_values, $card_number);    
@@ -107,12 +114,14 @@ class Iranian_bank_account_submit{
                 if(!empty($_POST['Shaba_number'])){
                     $shaba = $data_clean_up->test_input($regular_expressions['shaba_number'], strtoupper($_POST['Shaba_number']));
                     if(empty($shaba)){
-                        array_push($this->errors, "<p class='error'>Shaba number should begin with IR followed by 24 digits.</p>");
+                        $shaba_format_error = $translation['shaba_format_error'];
+                        array_push($this->errors, "<p class='error'>$shaba_format_error</p>");
                     }else{
                         $shaba_number_query_check = "SELECT Shaba_number FROM accounts WHERE Shaba_number = '$shaba' ";
                         $shaba_number_query_result = $connection->query($shaba_number_query_check);
                         if($shaba_number_query_result->num_rows > 0){
-                            array_push($this->errors, "<p class='error'>The same shaba number already registered to another account.</p>");
+                            $same_shaba_number_error = $translation['same_shaba_number_error'];
+                            array_push($this->errors, "<p class='error'>$same_shaba_number_error</p>");
                         }else{
                             array_push($this->column_names, "Shaba_number");
                             array_push($this->column_values, $shaba);    
@@ -120,22 +129,21 @@ class Iranian_bank_account_submit{
                     }
                 }
                 if(!empty($_POST['Initial_deposit'])){
-                    $initial_deposit = $data_clean_up->test_input($regular_expressions['initial_deposit'], $_POST['Initial_deposit']);
-                    if(empty($initial_deposit)){
-                        array_push($this->errors, "<p class='error'>The deposit should only be a number.</p>");
+                    $Balance = $data_clean_up->test_input($regular_expressions['initial_deposit'], $_POST['Initial_deposit']);
+                    if(empty($Balance)){
+                        $deposit_format_error = $translation['deposit_format_error'];
+                        array_push($this->errors, "<p class='error'>$deposit_format_error</p>");
                     }else{
-                        if($initial_deposit < 0){
-                            array_push($this->errors, "<p class='error'>The deposit should be a positive number.</p>");
-                        }else{
-                            array_push($this->column_names, "Initial_deposit");
-                            array_push($this->column_values, $initial_deposit);    
-                        }
+                        array_push($this->column_names, "Balance");
+                        array_push($this->column_values, $Balance);    
                     }
                 }
                 if(!empty($_POST['descriptions'])){
                     $descriptions = $data_clean_up->test_input($regular_expressions['descriptions'], $_POST['descriptions']);
+
                     if(empty($descriptions)){
-                        array_push($this->errors, "<p class='error'>allowed characters for description are '/-_=%$@' </p>");
+                        $descriptions_error = $translation['descriptions_error'];
+                        array_push($this->errors, "<p class='error'>$descriptions_error</p>");
                     }else{
                         array_push($this->column_names, "Description");
                         array_push($this->column_values, $descriptions);
@@ -144,13 +152,15 @@ class Iranian_bank_account_submit{
                 if(!empty($_POST['currency'])){
                     $currency = $data_clean_up->test_input($regular_expressions['currency'], $_POST['currency']);
                     if(empty($currency)){
-                        array_push($this->errors, "<p class='error'>Currency is not entered correctly.</p>");
+                        $currency_error = $translation['currency_error'];
+                        array_push($this->errors, "<p class='error'>$currency_error</p>");
                     }else{
                         array_push($this->column_names, "Currency_unit");
                         array_push($this->column_values, $currency);
                     }
                 }else{
-                    array_push($this->errors, "<p class='error'>Currency cannot be empty.</p>");
+                    $empty_currency = $translation['currency_empty_error'];
+                    array_push($this->errors, "<p class='error'>$empty_currency</p>");
                 }
                 // check to see if there was any errors:
                 if(empty($this->errors)){
@@ -168,8 +178,8 @@ class Iranian_bank_account_submit{
                     $add_query = "INSERT INTO accounts ($columns) VALUES ($values)";
                     echo "<br>" . $add_query . "<br>";
                     $result = $connection->query($add_query);
-                    echo "<p class='success'>Account added successfully.</p>";
-
+                    $successfully_added_message = $translation['Account_added_successfully'];
+                    echo "<p class='success'>$successfully_added_message</p>";
                     // echo $add_query;
                 }else{
                    foreach ($this->errors as $value) {

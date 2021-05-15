@@ -1,0 +1,19 @@
+@font-face{
+    src: url('../fonts/IRANSansWeb_Bold.ttf') format('truetype');
+    font-family: iranSans;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 12px;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.displayNone{
+    display: none;
+}
+
+body{
+    direction: rtl;
+}

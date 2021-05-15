@@ -1,0 +1,57 @@
+.new > .detail{
+    text-align: center;
+    font-weight: bold;
+    font-family: iranSans;
+}
+.new > form{
+    padding:2rem;
+    text-align: center;
+}
+
+.new > form > button{
+    font-family: iranSans;
+    background-color: #0069d9;
+    color:white;
+    border-radius: 5px;
+    padding: 1rem;
+    width:75%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.new > form > button:hover{
+    background-color: #28a745;
+    color:blue;
+    font-weight: bold;
+}
+
+input[type="text"]{
+    padding:0.25rem;
+    width: 100%;
+}
+
+.compulsary::before{
+    content:"*";
+    color: red;
+}
+
+input[type="file"]{
+    cursor: pointer;
+    margin:0.25rem;
+}
+
+button[type="submit"]{
+    cursor: pointer;
+}
+
+select, 
+input[type="radio"], 
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+textarea{
+    width:100%;
+    padding: 0.25rem;
+    font-family: iranSans;
+}

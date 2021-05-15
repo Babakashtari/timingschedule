@@ -1,0 +1,151 @@
+header{
+    font-family: iranSans;
+    font-weight: bold;
+    background-color: lightblue;
+}
+
+header ul{
+    list-style-type: none;
+    display: inline-block;
+}
+
+/* header navigation menu */
+header ul:not(.logo-container){
+    float: left;
+}
+header ul > li{
+    display:inline-block;
+}
+
+header ul > li > a{
+    display: block;
+    color: black;
+    padding:1.5rem;
+    text-decoration: none;
+    border-radius: 5px;   
+    transition: 0.5s;
+    font-size: 1rem;
+}
+
+/* logout/signin link */
+header ul > li > form > button{
+    display:block;
+    font-weight: bold;
+    font-size: 1rem;
+    border:none;
+    color:black;
+    background-color: transparent;
+    padding:1.5rem;
+    text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+header ul > li > form > button:hover{
+    color:white;
+    background-color: blue;
+}
+
+/* language selection button */
+.fa-language{
+    font-size: 1.25rem;
+}
+
+ul#language_container{
+    width: 100%;
+}
+
+ul#language_container > li{
+    display: block;
+}
+
+ul#language_container > li > button{
+    width:100%;
+    border-radius: 5px;
+    padding:1.5rem;
+    transition: 0.5s;
+}
+
+#language_form{
+    position: relative;
+}
+
+#language_form > ul{
+    position: absolute;
+}
+ul#language_container > li > button:hover{
+    background-color: blue;
+    color:white;
+}
+/* logo containing link */
+header ul.logo-container > li.logo > a{
+    padding:0;
+}
+
+/* logo image */
+header ul.logo-container > li.logo > a > img{
+    width:55px;
+    border-radius: 50%;
+    margin:5px;
+} 
+
+/* no background change on hover for the logo image: */
+header ul:not(.logo-container) > li > a:hover{
+    color:white;
+    background-color: blue;
+}
+/* logo container ul: */
+header ul.logo-container{
+    position: relative;
+}
+
+/* the text beside the logo: */
+header ul.logo-container > li.logo-text{
+    position: absolute;
+    top:0;
+    left:0;
+    right:100%;
+    z-index: 1000;
+}
+
+
+header ul.logo-container > li.logo-text > a{
+    padding: 1.5rem 0;
+    color:blue;
+    width: 150px;
+    transition: 0.5s;
+    font-style: italic;
+    font-family: iranSans;
+    font-size:14px;
+
+}
+
+/* color change for the text beside the logo on hover: */
+header ul.logo-container > li.logo-text > a:hover{
+    color:rgb(69, 157, 215);
+}
+
+select#language{
+    border:none;
+    background-color: transparent;
+}
+
+@media (max-width:600px){
+    /* for putting navigation elements below each other in the header */
+    header ul{
+        display:block;
+        width: 100%;
+        text-align: center;
+        float: none !important;
+    }
+    /* for putting the text beside the logo below the logo image */
+    header ul.logo-container>li{
+        display: block;
+        position: static !important;
+    }
+    header ul.logo-container > li.logo-text > a{
+        /* width is set to 100 so thet the text below the logo image centers */
+        width: 100%;
+    }
+}

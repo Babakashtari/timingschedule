@@ -1,7 +1,7 @@
 <?php
     ?>
     <div class="new_program new_iterable_program">
-        <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" style="<?php echo $style['text-align']; ?>">
+        <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
             <fieldset>
                     <legend><?php echo $translation['New_iterable_event_form_legend']; ?></legend>
                     <div>

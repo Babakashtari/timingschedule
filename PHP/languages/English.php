@@ -112,6 +112,7 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
 
         "New_bank_account_form_legend" => "New Iranian Bank Account:",
         "Bank_name" => "Bank name:",
+        "Bank_name_placeholder" => "ex: Eghtesade Novin",
         "not_in_the_list_above" => "Not in the list above?",
         "Bank_Logo" => "Bank Logo:",
         "Add_Bank_submit" => "Add Bank",
@@ -137,22 +138,33 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "New_account_submit" => "Add New Account",
 
         "Bank_ID_error" => "The Bank name does not match.",
-        "account_owner_error" => "Account owner should begin with a capital letter and only contain space and letters .",
-        "multiple_owners_error" => "Name of each owner should begin with a capital letter. Also seperate owner's names with a comma: ,",
+        "account_owner_error" => "Account owner should begin with a capital letter and only contain space and letters. Maximum word-count and character-count of each word are 5 and 10 respectively.",
+        "multiple_owners_error" => "Name of each owner should begin with a capital letter. Maximum of 10 owners allowed. Also owner's names should be seperated with a comma: ,",
         "minimum_one_owner_error" => "At least an account owner should be specified.",
-        "branch_name_error" => "Branch names should only contain letters and numbers.",
+        "branch_name_error" => "Branch names should only contain letters, numbers, dash and underscore.",
         "account_number_error" => "Account number should contain at least 8 digits without any space or dash.",
+        "same_account_number_error" => "An account with the same account number is already registered.",
+        "minimum_one_account_number_error" => "An account number must be specified.",
+        "card_number_format_error" => "Card number should contain 16 digits. No space or dash required.",
+        "same_card_number_error" => "The same card number already registered to another account.",
+        "shaba_format_error" => "Shaba number should begin with IR followed by 24 digits.",
+        "same_shaba_number_error" => "The same shaba number already registered to another account.",
+        "deposit_format_error" => "The deposit should only be a positive number.",
+        "descriptions_error" => "Only letters, numbers and _ are allowed for description.",
+        "currency_error" => "Currency is not entered correctly.",
+        "currency_empty_error" => "Currency cannot be empty.",
+        "Account_added_successfully" => "Account added successfully.",
+
+        "image_required_error" => "Please upload an image as the bank icon.",
+        "allowed_image_format_error" => "Allowed file formats are JPG and PNG.",
+        "image_file_size_error" => "File size should not exceed 500KBs.",
+        "doublicate_bank_name_error" => "Bank name already exists. No need to reenter.",
+        "new_bank_added_successfully" => "Thank you for your contribution. Please wait while we verify your Bank.",
+        "new_bank_success_message" => "New Bank added successfully.",
+        "bank_name_format_error" => "Bank Name Should begin with a capital and cannot contain more than 8 words or 15 characters in each word.",
+        "Bank_name_empty_error" => "Bank Name and Image fields cannot be empty.",
     ]; 
 
-    $style = [
-        "direction" => "direction: ltr;",
-        "float" => "float: right;",
-        "right" => "right: 0;",
-        "image_alignment" => "right: 10px;",
-        "left" => "left: 100%;",
-        "text-align" => "text-align:left;",
-
-    ];
 
 }
 

@@ -7,6 +7,8 @@ class Bank_adding extends Data_clean_up{
     public $logo_directory;
 
     function __construct($country, $bank_name, $bank_logo, $logo_directory){
+        $regular_expressions = get_regular_expression($_SESSION['language']);
+        global $translation;
         $this->country = $country;
         $this->bank_name = $bank_name;
         $this->bank_logo = $bank_logo;
@@ -14,7 +16,12 @@ class Bank_adding extends Data_clean_up{
         
         // when a user adds a brand-new bank:
         if(!empty($this->bank_name)){
-            $cleaned_bank_name = $this->test_input('/^[A-Z]([A-Z]?[a-z]{1,8}\s?){1,8}$/', $this->bank_name);
+            echo $regular_expressions['bank_name'];
+            echo "<br>raw bank name is: " . $this->bank_name;
+
+
+            $cleaned_bank_name = $this->test_input($regular_expressions['bank_name'], $this->bank_name);
+            echo "<br> cleaned bank name is : " . $cleaned_bank_name;
             if(!empty($cleaned_bank_name)){
 
                 $uploader_username = $_SESSION['username'];
@@ -24,7 +31,7 @@ class Bank_adding extends Data_clean_up{
                 $file_TMP_name = $file['tmp_name'];
                 if(!is_uploaded_file($file_TMP_name)){
                     ?>
-                        <p class="error">Please upload an image as the bank icon.</p>
+                        <p class="error"><?php echo $translation['image_required_error']; ?></p>
                     <?php
                 }else{
                     $name_array = explode('.', $file_name);
@@ -34,13 +41,13 @@ class Bank_adding extends Data_clean_up{
                     // check if the format of the image is allowed:
                     if(!in_array($file_extension, $allowed_extensions)){
                         ?>
-                            <p class="error">Allowed file formats are JPG and PNG.</p>
+                            <p class="error"><?php echo $translation['allowed_image_format_error']; ?></p>
                         <?php
                     }
                     // check if the file size is bellow 500kb:
                     if($file_size> 512000){
                         ?>
-                            <p class="error">File size should not exceed 500KBs.</p>
+                            <p class="error"><?php echo $translation['image_file_size_error']; ?></p>
                         <?php
                     }
                     if(in_array($file_extension, $allowed_extensions) && $file_size<= 512000){
@@ -53,7 +60,7 @@ class Bank_adding extends Data_clean_up{
                             $result = $connection->query($check_bank_database);
                             if($result->num_rows > 0){
                                 ?>
-                                    <p class="error">Bank name already exists. No need to reenter.</p>
+                                    <p class="error"><?php echo $translation['doublicate_bank_name_error']; ?></p>
                                 <?php
                                 $connection->close();
                             // a new bank name is entered:
@@ -73,14 +80,14 @@ class Bank_adding extends Data_clean_up{
                                 }else{
                                     $verified = "NO";
                                     ?>
-                                        <p class="success">Please wait while we verify your Bank. Thank you for your contribution.</p>
+                                        <p class="success"><?php echo $translation['new_bank_added_successfully']; ?></p>
                                     <?php
                                 }
                                 $insert_query = "INSERT INTO banks (Country, Bank_name, Logo_path, Verified) VALUES ('$this->country', '$cleaned_bank_name', '$file_destination', '$verified')";
                                 $connection->query($insert_query);
                                 $connection->close();
                                 ?>
-                                    <p class="success">New Bank added successfully.</p>
+                                    <p class="success"><?php echo $translation['new_bank_success_message']; ?></p>
                                 <?php
                             }
                         }
@@ -88,12 +95,12 @@ class Bank_adding extends Data_clean_up{
                 }
             }else{
                 ?>
-                    <p class="error">Bank Name Should begin with a capital and cannot contain more than 8 words.</p>
+                    <p class="error"><?php echo $translation['bank_name_format_error']; ?></p>
                 <?php
             }
         }else{
             ?>
-                <p class="error">Bank Name cannot be empty.</p>
+                <p class="error"><?php echo $translation['Bank_name_empty_error']; ?></p>
             <?php    
         }
     }

@@ -112,6 +112,8 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
 
         "New_bank_account_form_legend" => "ایجاد حساب بانکی ایرانی جدید:",
         "Bank_name" => "نام بانک:",
+        "Bank_name_placeholder" => "مثال: اقتصاد نوین",
+
         "not_in_the_list_above" => "بانک در لیست بالا موجود نیست؟",
         "Bank_Logo" => "لوگوی بانک:",
         "Add_Bank_submit" => "اضافه به لیست",
@@ -137,24 +139,33 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "New_account_submit" => "افزودن حساب بانکی",
 
         "Bank_ID_error" => "اسم بانک درست  نیست.",
-        "account_owner_error" => "نام صاحب حساب باید با حرف اول بزرگ آغاز شود و تنها کاراکتر های قابل قبول حروف هستند.",
-        "multiple_owners_error" => "نام صاحبین حساب باید با حرف بزرگ آغاز شود، همچنین باید با ویرگول از یکدیگر جدا شوند.",
+        "account_owner_error" => "تنها کاراکتر های قابل قبول برای نام صاحب حساب حروف فارسی و حداکثر 5 کلمه 3 تا 10 کاراکتری قابل قبول است.",
+        "multiple_owners_error" => "نام صاحبین حساب نباید بیشتر از 10 نفر و هر اسم بیشتر از 16 کاراکتر باشد. همچنین اسامی باید با ویرگول از یکدیگر جدا شوند.",
         "minimum_one_owner_error" => "حداقل یک نام بعنوان صاحب حساب لازم است.",
-        "branch_name_error" => "نام شعبه تنها باید اعداد و حروف داشته باشد.",
+        "branch_name_error" => "نام شعبه تنها می تواند عدد، حروف، خط تیره و آندرلاین باشد.",
         "account_number_error" => "شماره حساب باید عددی و حداقل 8 رقم باشد. خط فاصله نیاز نیست.",
+        "same_account_number_error" => "این شماره حساب قبلا ثبت شده است.",
+        "minimum_one_account_number_error" => "شماره حساب اجباری است.",
+        "card_number_format_error" => "شماره کارت باید 16 رقمی باشد. خط تیره و فاصله لازم نیست.",
+        "same_card_number_error" => "این شماره کارت قبلا در سیستم ثبت شده است.",
+        "shaba_format_error" => "شماره شبا باید با IR شروع و 24 رقم داشته باشد.",
+        "same_shaba_number_error" => "این شماره شبا قبلا در سیستم ثبت شده است.",
+        "deposit_format_error" => "مانده اولیه حساب باید عددی و مثبت باشد.",
+        "descriptions_error" => "تنها حروف و اعداد و _ برای توضیحات حساب مجاز است.",
+        "currency_error" => "ارز حساب درست وارد نشده است.",
+        "currency_empty_error" => "واحد ارزی حساب نمی تواند خالی باشد.",
+        "Account_added_successfully" => "حساب بانکی با موفقیت ثبت شد.",
 
+        "image_required_error" => "لطفا عکس لوگوی بانک مورد نظر خود را نیز آپلود کنید.",
+        "allowed_image_format_error" => "فرمت های قابل قبول برای لوگو تنها JPG و PNG هستند.",
+        "image_file_size_error" => "حجم فایل نباید بیشتر از 500 کیلوبایت باشد.",
+        "doublicate_bank_name_error" => "بانکی با این نام قبلا در سامانه ثبت شده است.",
+        "new_bank_added_successfully" => "ضمن تشکر از کمکتان در بالندگی سامانه ما. لطفا شکیبا باشید تا بانک جدیدتان را تایید کنیم.",
+        "new_bank_success_message" => "بانک جدید با موفقیت ثبت شد.",
+        "bank_name_format_error" => "اسم بانک نمی تواند بیشتر از 8 کلمه و هر کلمه بیشتر از 15 کاراکتر باشد و تنها حروف فارسی قابل قبول هستند.",
+        "Bank_name_empty_error" => "فیلدهای نام و لوگوی بانک اجباری هستند.",
 
-    ]; 
-
-    $style = [
-        "direction" => "direction: rtl;",
-        "float" => "float: left;",
-        "right" => "right: 100%;",
-        "image_alignment" => "left: 0;",
-        "left" => "left: 0;",
-        "text-align" => "text-align:right;",
-    ];
-    
+    ];     
 }
 
 ?>
