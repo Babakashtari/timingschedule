@@ -131,7 +131,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "Shaba_number_label" => "Numéro Shaba de compte :",
         "Shaba_number_placeholder" => "IR + 24 chiffres",
         "Initial_Deposit_label" => "dépôt initial :",
-        "Initial_deposit_placeholder" => "Entrez un numéro positif",
+        "Initial_deposit_placeholder" => "Entrez un numéro positif et en 15 chiffres au maximum.",
         "Descriptions_label" => "Descriptions",
         "Descriptions_placeholder" => "Ecrivez quelque chose à propos du compte...",
         "currency_label" => "La devise du compte :",

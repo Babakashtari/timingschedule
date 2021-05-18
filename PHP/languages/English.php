@@ -131,7 +131,7 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "Shaba_number_label" => "Account Shaba Number:",
         "Shaba_number_placeholder" => "enter IR + 24 numbers",
         "Initial_Deposit_label" => "Initial Deposit:",
-        "Initial_deposit_placeholder" => "Enter a positive number",
+        "Initial_deposit_placeholder" => "Enter a positive number with a maximum of 15 digits. ",
         "Descriptions_label" => "Descriptions",
         "Descriptions_placeholder" => "type something about this account...",
         "currency_label" => "Currency Unit Of The Account:",

@@ -5,18 +5,23 @@
 }
 ::-webkit-input-placeholder{
     font-family: iranSans;
+    text-overflow: ellipsis;
 }
 ::-moz-placeholder{
     font-family: iranSans;
+    text-overflow: ellipsis;
 }
 :-ms-input-placeholder{
     font-family: iranSans;
+    text-overflow: ellipsis;
 }
 ::-ms-input-placeholder{
     font-family: iranSans;
+    text-overflow: ellipsis;
 }
 ::placeholder{
     font-family: iranSans;
+    text-overflow: ellipsis;
 }
 .new_program > form{
     display: inline-block;

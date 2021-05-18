@@ -10,10 +10,9 @@
         "card_number" => '/^\d{16}$/',
         "shaba_number" => '/^IR[0-9]{24}$/',
         // negative numbers for the initial deposit are not accepted according to this regular expression:
-        "initial_deposit" => '/^\d{1,}$/',
+        "initial_deposit" => '/^\d+$/',
         "descriptions" => '/[\d\w]{1,}/',
         "currency" => '/^[A-Za-z0-9\/, -_=%$@]{1,}$/',
-        
     ];
 
     // French regular expressions:
@@ -27,10 +26,9 @@
         "card_number" => '/^\d{16}$/',
         "shaba_number" => '/^IR[0-9]{24}$/',
         // negative numbers for the initial deposit are not accepted according to this regular expression:
-        "initial_deposit" => '/^\d{1,}$/',
+        "initial_deposit" => '/^\d+$/',
         "descriptions" => '/[\d\w]{1,}/',
         "currency" => '/^[A-Za-z0-9\/, -_=%$@]{1,}$/',
-        
     ];
 
     // Persian regular expressions:
@@ -44,10 +42,9 @@
         "card_number" => '/^\d{16}$/',
         "shaba_number" => '/^IR[0-9]{24}$/',
         // negative numbers for the initial deposit are not accepted according to this regular expression:
-        "initial_deposit" => '/^\d{1,}$/',
+        "initial_deposit" => '/^\d+$/',
         "descriptions" => '/[\d\w]{1,}/',
         "currency" => '/^[A-Za-z0-9\/, -_=%$@]{1,}$/',
-        
     ];
 
     function get_regular_expression($session_language){

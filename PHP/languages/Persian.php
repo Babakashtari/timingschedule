@@ -132,7 +132,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "Shaba_number_label" => "شماره شبا:",
         "Shaba_number_placeholder" => "آی آر + 24 رقم",
         "Initial_Deposit_label" => "مانده اولیه:",
-        "Initial_deposit_placeholder" => "یک عدد بزرگتر از 0 وارد کنید",
+        "Initial_deposit_placeholder" => "یک عدد بزرگتر از 0 وارد کنید. حداکثر 15 رقم",
         "Descriptions_label" => "توضیحات",
         "Descriptions_placeholder" => "چیزی درباره این حساب بنویسید...",
         "currency_label" => "ارز حساب بانکی:",

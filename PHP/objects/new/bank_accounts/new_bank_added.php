@@ -129,7 +129,9 @@ class Iranian_bank_account_submit{
                     }
                 }
                 if(!empty($_POST['Initial_deposit'])){
-                    $Balance = $data_clean_up->test_input($regular_expressions['initial_deposit'], $_POST['Initial_deposit']);
+                    $Balance = str_replace("," , "", $_POST['Initial_deposit']);
+                    echo $Balance;
+                    $Balance = $data_clean_up->test_input($regular_expressions['initial_deposit'], $Balance);
                     if(empty($Balance)){
                         $deposit_format_error = $translation['deposit_format_error'];
                         array_push($this->errors, "<p class='error'>$deposit_format_error</p>");
@@ -176,11 +178,9 @@ class Iranian_bank_account_submit{
                     $values .= $_SESSION['user_ID'];
 
                     $add_query = "INSERT INTO accounts ($columns) VALUES ($values)";
-                    echo "<br>" . $add_query . "<br>";
                     $result = $connection->query($add_query);
                     $successfully_added_message = $translation['Account_added_successfully'];
                     echo "<p class='success'>$successfully_added_message</p>";
-                    // echo $add_query;
                 }else{
                    foreach ($this->errors as $value) {
                        echo $value;

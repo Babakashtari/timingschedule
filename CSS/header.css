@@ -48,9 +48,9 @@ header ul > li > form > button:hover{
 }
 
 /* language selection button */
-.fa-language{
+/* .fa-language{
     font-size: 1.25rem;
-}
+} */
 
 ul#language_container{
     width: 100%;
