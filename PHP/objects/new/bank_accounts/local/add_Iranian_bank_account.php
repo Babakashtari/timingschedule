@@ -83,7 +83,7 @@
                     </div>
                     <div>
                         <label for="card_number"><?php echo $translation['Card_number_label']; ?>
-                            <input type="text" name="card_number" id="card_number" value="<?php if(isset($_POST['card_number'])){echo $_POST['card_number'];} ?>" placeholder="<?php echo $translation['Card_number_placeholder']; ?>" >
+                            <input type="text" name="card_number" class="card_number" value="<?php if(isset($_POST['card_number'])){echo $_POST['card_number'];} ?>" placeholder="<?php echo $translation['Card_number_placeholder']; ?>" >
                         </label>
                     </div>
                     <div>

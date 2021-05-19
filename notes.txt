@@ -2,6 +2,9 @@ forgot password section
 didn't receive your activation email? send it again here
 adding multi-language styles for homepage_reports.css file and modifying index.php header accordingly
 
+Mina
+Masum Zade
+Ali ascensseur
 
 
 

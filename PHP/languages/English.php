@@ -163,6 +163,11 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "new_bank_success_message" => "New Bank added successfully.",
         "bank_name_format_error" => "Bank Name Should begin with a capital and cannot contain more than 8 words or 15 characters in each word.",
         "Bank_name_empty_error" => "Bank Name and Image fields cannot be empty.",
+        "Your_Accounts" => "Your Bank Accounts:",
+        "Account" => "Account",
+        "Card" => "Card",
+        "Balance" => "Balance",
+        "description" => "description",
     ]; 
 
 

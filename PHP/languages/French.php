@@ -163,6 +163,11 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "new_bank_success_message" => "Nouvelle banque ajoutée avec du succès.",
         "bank_name_format_error" => "Nom de la banque doit commencer en majuscule et limité à moins de 8 mots et 15 lettres dans chaque mot.",
         "Bank_name_empty_error" => "Nom de la banque et l'image logo de la banque sont obligatores.",
+        "Your_Accounts" => "Vos Comptes Bancaires:",
+        "Account" => "Compte",
+        "Card" => "Carte",
+        "Balance" => "Solde",
+        "description" => "description",
 
 
     ]; 

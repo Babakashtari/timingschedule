@@ -90,7 +90,7 @@ p#error_message_30_31{
     color:Red;
     font-size: 0.75rem;
 }
-input#card_number{
+input.card_number{
     direction: ltr;
     text-align: right;
 }

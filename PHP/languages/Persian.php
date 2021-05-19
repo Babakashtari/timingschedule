@@ -164,6 +164,11 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "new_bank_success_message" => "بانک جدید با موفقیت ثبت شد.",
         "bank_name_format_error" => "اسم بانک نمی تواند بیشتر از 8 کلمه و هر کلمه بیشتر از 15 کاراکتر باشد و تنها حروف فارسی قابل قبول هستند.",
         "Bank_name_empty_error" => "فیلدهای نام و لوگوی بانک اجباری هستند.",
+        "Your_Accounts" => "حساب های بانکی شما:",
+        "Account" => "حساب",
+        "Card" => "کارت",
+        "Balance" => "موجودی",
+        "description" => "توضیحات",
 
     ];     
 }

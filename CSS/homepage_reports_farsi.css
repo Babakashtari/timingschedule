@@ -8,9 +8,9 @@ div.account-container{
 }
 
 table{
+    /* border:3px solid blue; */
     width:90%;
     margin:0 auto;
-    /* table-layout: auto; */
 }
 
 table th,
@@ -18,42 +18,22 @@ table td{
     padding:0.25rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
-    overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100px;
-}
-table th{
-    background-color: black;
-    color: white;
 }
 
-table .fa-edit{
+.fa-edit{
     color:green;
 }
 
-table .fa-trash-alt{
+.fa-trash-alt{
     color:Red;
 }
-
 .reports_container > .bank_accounts_container > .account-container button[type="submit"]{
+    font-size: 1.5rem;
     background-color: transparent;
     border:none;
     margin:0.25rem;
 }
-
-table tr:nth-child(odd){
+table:nth-child(odd){
     background-color: lightgray;
-}
-
-@media (max-width:860px){
-    table, table i {
-        font-size:0.75rem;
-    }
-    table img{
-        width:25px;
-    }
-    table th,
-    table td{
-        max-width: 50px;
-    }
 }
