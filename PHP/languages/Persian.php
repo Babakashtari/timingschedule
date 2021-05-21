@@ -169,6 +169,14 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "Card" => "کارت",
         "Balance" => "موجودی",
         "description" => "توضیحات",
+        "choose_bank_account" => "به کدام حسابتان واریز شود : ",
+        "no_accounts_yet_error" => "شما هنوز حساب بانکی وارد نکرده اید.",
+        "open_bank_account" => "افتتاح حساب از اینجا",
+        "delete_bank_account_success" => "حساب با موفقیت حذف شد.",
+        "return" => "بازگشت",
+        "delete_confirm_message" => "آیا اطمینان دارید؟",
+        "delete_error" => "ارور داخلی. حساب بانکی حذف نشد.",
+        "invalid_account_number_error" => "شماره حساب درست وارد نشده است.",
 
     ];     
 }

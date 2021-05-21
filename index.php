@@ -3,6 +3,7 @@
 <?php require "PHP/objects/data_clean_up.php"; ?>
 <?php require "PHP/objects/session.php"; ?>
 <?php require "PHP/login_signin_check.php"; ?>
+<?php require "PHP/objects/new/bank_accounts/load_bank_accounts_select_options.php"; ?>
 
 <?php require "PHP/languages/French.php"; ?>
 <?php require "PHP/languages/English.php"; ?>
@@ -41,6 +42,7 @@
     <?php if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){?><link rel="stylesheet" href="CSS/add_new_program_farsi.css"><?php }else{?><link rel="stylesheet" href="CSS/add_new_program.css"> <?php } ?>
     <?php if(isset($_POST['Iranian_bank_account'])){ ?>    <link rel="stylesheet" href="CSS/iranian_new_bank_account.css"> <?php } ?>
     <?php if((isset($_POST['signin']) && $_POST['signin'] === "signed_in") || (!isset($_POST) || empty($_POST) && isset($_SESSION) && !empty($_SESSION['user_ID']))){ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){ ?><link rel="stylesheet" href="CSS/homepage_reports.css"> <?php }else{ ?> <link rel="stylesheet" href="CSS/homepage_reports.css">  <?php }  } ?>
+    <?php if(isset($_POST['delete_bank_account_confirm'])){ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){ ?> <link rel="stylesheet" href="CSS/delete_bank_account_farsi.css"> <?php }else{ ?> <link rel="stylesheet" href="CSS/delete_bank_account.css"> <?php } } ?>
     <title><?php echo $translation['title']; ?></title>
 </head>
 <body >
@@ -60,6 +62,7 @@
         <!-- registration form: -->
         <?php require "PHP/register.php"; ?>
         <?php require "PHP/objects/homepage_reports.php"; ?>
+        <?php require "PHP/objects/delete_bank_account.php"; ?>
     </main>
     <footer>
     

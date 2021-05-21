@@ -168,6 +168,14 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "Card" => "Carte",
         "Balance" => "Solde",
         "description" => "description",
+        "choose_bank_account" => "Choisissez le compte où mettre votre argent :",
+        "no_accounts_yet_error" => "Vous n'avez toujours pas ouvert de compte bancaire.",
+        "open_bank_account" => "Ouvrez par ici",
+        "delete_bank_account_success" => "Votre compte est supprimé.",
+        "return" => "Retour",
+        "delete_confirm_message" => "Vous en êtes sûr ?",
+        "delete_error" => "Erreur interne. Le compte n'était pas supprimé.",
+        "invalid_account_number_error" => "Numéro du compte n'est pas valide",
 
 
     ]; 

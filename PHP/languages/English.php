@@ -168,6 +168,14 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "Card" => "Card",
         "Balance" => "Balance",
         "description" => "description",
+        "choose_bank_account" => "Choose your bank account where to deposit your money:",
+        "no_accounts_yet_error" => "You have not yet opened any accounts.",
+        "open_bank_account" => "Open here",
+        "delete_bank_account_success" => "Your account is deleted successfully",
+        "return" => "Return",
+        "delete_confirm_message" => "Are you sure?",
+        "delete_error" => "There was an internal error. The bank account was not deleted.",
+        "invalid_account_number_error" => "The account number is not valid",
     ]; 
 
 

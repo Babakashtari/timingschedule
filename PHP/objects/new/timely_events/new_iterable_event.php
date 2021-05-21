@@ -207,8 +207,14 @@
                     </div>
                     <div class="displayNone" id="money_amount_container">
                         <label for="amount_of_money_received" class="compulsary"><?php echo $translation['amount_of_money_received_label']; ?>
-                            <input type="number" name="amount_of_money_received" id="amount_of_money_received">
+                            <input type="text" name="amount_of_money_received" id="amount_of_money_received">
                         </label>
+                        <!-- loading of bank account options: -->
+                        <?php
+                            $loading_banks = new load_banks();
+
+                        ?>
+
                         <p class="compulsary"><?php echo $translation['currency_choice_label']; ?></p>
                         <select name="currency" id="currency">
                             <option value="US_Dollar"><?php echo $translation['US_Dollars']; ?></option>

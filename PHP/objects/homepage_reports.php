@@ -29,16 +29,17 @@ if((isset($_POST['signin']) && $_POST['signin'] === "signed_in" && isset($_SESSI
                                     <tr>
                                         <td>
                                             <!-- edit and delete buttons: -->
-                                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                                                <button  type="submit" name="bank_account" value="edit">
+                                            <form class="inline" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                                                <input type="hidden" name="account_number" value="<?php echo $row['Account_number']; ?>">
+                                                <button  type="submit" name="edit_bank_account" value="edit">
                                                     <i class="fas fa-edit"></i> 
                                                 </button>
-                                                <button type="submit" name="bank_account" value="delete">
+                                                <button type="submit" name="delete_bank_account_confirm" value="delete">
                                                     <i class="fas fa-trash-alt"></i> 
                                                 </button>
                                             </form>
                                         </td>
-                                        <td><img src="<?php echo $row['logo_path']; ?>" alt="تصویر بانک"></td>
+                                        <td><img src="<?php echo $row['logo_path']; ?>" alt="تصویر بانک" width="50px" height="50px"></td>
                                         <td><?php echo $row['Account_number']; ?></td>
                                         <td class="card_number"><?php echo $row['Card_number']; ?></td>
                                         <td><?php echo number_format($row['Balance']); ?></td>

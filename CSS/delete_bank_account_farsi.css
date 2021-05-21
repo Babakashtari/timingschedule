@@ -1,0 +1,21 @@
+form > p{
+    padding: 0.25rem 0;
+}
+
+form > p > button[type="submit"],
+form > p > a {
+    padding:0.25rem;
+    color:white;
+    border-radius: 5px;
+    font-family: iranSans;
+    background-color: red;
+    display:inline-block;
+    width:65px;
+    font-size: 1rem;
+}
+
+form > p > a{
+text-decoration: none;
+background-color: #28a745;
+
+}
