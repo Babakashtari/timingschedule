@@ -21,7 +21,7 @@ function format(event){
     }
 }
 const number_input = document.querySelectorAll('.numerical_value');
-console.log(number_input);
+
 for(let x = 0; x<number_input.length; x++){
     number_input[x].addEventListener('input', format);
 }

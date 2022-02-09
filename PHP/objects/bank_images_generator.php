@@ -28,13 +28,13 @@ class Bank_photos{
         $Persian_characters = ["آ", "ء", "ا", "ب", "پ", "ت", "ث", "ج", "چ", "ح", "خ", "د", "ذ", "ر", "ز", "ژ", "س", "ش", "ص", "ض", "ط", "ذ", "ع", "غ", "ف", "ق", "ک", "گ", "ل", "م", "و", "ه", "ی", "ئ", "ن", "ی"];
         // decoding unicoded Persian alphabet:
         if(!empty($images_array)){
-                for($i = 0 ; $i<count($Arabic_unicodes); $i++){
-                    // check if the unicoded letter is found in the string:
-                    if(strpos($images_array, $Arabic_unicodes[$i]) !== false){
-                       $images_array = str_replace($Arabic_unicodes[$i], $Persian_characters[$i], $images_array);
-                    }                    
-                }
+            for($i = 0 ; $i<count($Arabic_unicodes); $i++){
+                // check if the unicoded letter is found in the string:
+                if(strpos($images_array, $Arabic_unicodes[$i]) !== false){
+                    $images_array = str_replace($Arabic_unicodes[$i], $Persian_characters[$i], $images_array);
+                }                    
             }
+        }
         echo "<p class='directories displayNone' >" . $images_array . "</p>";
     }
 }

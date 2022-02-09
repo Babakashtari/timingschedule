@@ -176,6 +176,8 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "delete_confirm_message" => "Are you sure?",
         "delete_error" => "There was an internal error. The bank account was not deleted.",
         "invalid_account_number_error" => "The account number is not valid",
+        "Edit_bank_account_form_legend" => "Edit this account",
+        "modify_account" => "Modify the account",
     ]; 
 
 

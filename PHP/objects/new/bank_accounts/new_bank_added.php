@@ -38,6 +38,9 @@ class Iranian_bank_account_submit{
                     }else{
                         array_push($this->column_names, "Account_owner");
                         array_push($this->column_values, $account_owner);
+
+                        array_push($this->column_names, "Multiple_owners");
+                        array_push($this->column_values, "NO");
                     }
                 }elseif(!empty($_POST['account_holders'])){
                     $account_owners = $data_clean_up->test_input($regular_expressions['account_owners'], $_POST['account_holders']);
@@ -47,6 +50,9 @@ class Iranian_bank_account_submit{
                     }else{
                         array_push($this->column_names, "Account_owner");
                         array_push($this->column_values, $account_owners);
+
+                        array_push($this->column_names, "Multiple_owners");
+                        array_push($this->column_values, "YES");
                     }
                 }else{
                     $minimum_one_owner_error = $translation['minimum_one_owner_error'];

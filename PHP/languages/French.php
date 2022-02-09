@@ -176,6 +176,8 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "delete_confirm_message" => "Vous en êtes sûr ?",
         "delete_error" => "Erreur interne. Le compte n'était pas supprimé.",
         "invalid_account_number_error" => "Numéro du compte n'est pas valide",
+        "Edit_bank_account_form_legend" => "Modifiez votre compte",
+        "modify_account" => "Modifiez le compte",
 
 
     ]; 

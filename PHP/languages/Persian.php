@@ -133,7 +133,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "Shaba_number_placeholder" => "آی آر + 24 رقم",
         "Initial_Deposit_label" => "مانده اولیه:",
         "Initial_deposit_placeholder" => "یک عدد بزرگتر از 0 وارد کنید. حداکثر 15 رقم",
-        "Descriptions_label" => "توضیحات",
+        "Descriptions_label" => "توضیحات:",
         "Descriptions_placeholder" => "چیزی درباره این حساب بنویسید...",
         "currency_label" => "ارز حساب بانکی:",
         "New_account_submit" => "افزودن حساب بانکی",
@@ -177,6 +177,9 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "delete_confirm_message" => "آیا اطمینان دارید؟",
         "delete_error" => "ارور داخلی. حساب بانکی حذف نشد.",
         "invalid_account_number_error" => "شماره حساب درست وارد نشده است.",
+        "Edit_bank_account_form_legend" => "اصلاح حساب:",
+        "modify_account" => "اعمال تغییرات",
+
 
     ];     
 }

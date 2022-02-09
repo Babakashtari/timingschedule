@@ -24,5 +24,5 @@ class card_number_seperator{
     }
 }
 
-const card_number_input = document.getElementsByClassName('card_number')[0];
-seperator = new card_number_seperator(card_number_input);
+const card_number_text_field = document.getElementsByClassName('card_number')[0];
+seperator = new card_number_seperator(card_number_text_field);

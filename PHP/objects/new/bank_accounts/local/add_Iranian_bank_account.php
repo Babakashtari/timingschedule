@@ -62,8 +62,8 @@
                             </label>
                         </span>
                         <span>
-                            <label for="multiple">
-                                <input type="checkbox" name="multiple" id="multiple" value="multiple_owners"> <?php echo $translation['Multiple_owners']; ?>
+                            <label for="multiple_owners">
+                                <input type="checkbox" name="multiple_owners" id="multiple_owners" value="YES"> <?php echo $translation['Multiple_owners']; ?>
                             </label>
                         </span>
                     </div>
