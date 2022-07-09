@@ -42,7 +42,7 @@
     <?php if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){?><link rel="stylesheet" href="CSS/add_new_program_farsi.css"><?php }else{?><link rel="stylesheet" href="CSS/add_new_program.css"> <?php } ?>
     <?php if(isset($_POST['Iranian_bank_account']) || isset($_POST['edit_bank_account'])){ ?>    <link rel="stylesheet" href="CSS/iranian_new_bank_account.css"> <?php } ?>
     <?php if((isset($_POST['signin']) && $_POST['signin'] === "signed_in") || (!isset($_POST) || empty($_POST) && isset($_SESSION) && !empty($_SESSION['user_ID']))){ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){ ?><link rel="stylesheet" href="CSS/homepage_reports.css"> <?php }else{ ?> <link rel="stylesheet" href="CSS/homepage_reports.css">  <?php }  } ?>
-    <?php if(isset($_POST['delete_bank_account_confirm'])){ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){ ?> <link rel="stylesheet" href="CSS/delete_bank_account_farsi.css"> <?php }else{ ?> <link rel="stylesheet" href="CSS/delete_bank_account.css"> <?php } } ?>
+    <?php if(isset($_POST['delete_bank_account_confirm'])){ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){ ?> <link rel="stylesheet" href="CSS/homepage_reports.css"> <link rel="stylesheet" href="CSS/delete_bank_account_farsi.css"> <?php }else{ ?> <link rel="stylesheet" href="CSS/homepage_reports.css"> <link rel="stylesheet" href="CSS/delete_bank_account.css"> <?php } } ?>
     <title><?php echo $translation['title']; ?></title>
 </head>
 <body >

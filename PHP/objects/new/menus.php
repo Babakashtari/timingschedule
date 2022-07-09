@@ -85,7 +85,9 @@ class Events{
 if(isset($_POST['add_new'])){
     // if user is not logged in and tries to add a new program:
     if(!isset($_SESSION['username'])){
-        echo "<p class='error'>You must login first to add a new program.</p>";
+        ?>
+            <p class='error'>You must login first to add a new program.</p>
+        <?php
     }else{
         $First_menu = new First_menu();
     }

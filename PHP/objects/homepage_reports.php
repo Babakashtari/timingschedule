@@ -21,7 +21,7 @@ if((isset($_POST['signin']) && $_POST['signin'] === "signed_in" && isset($_SESSI
                                 die("Connection failed: " . $connection->connect_error);
                             }else{
                                 $user_ID = $_SESSION['user_ID'];
-                                $get_banks_query = "SELECT accounts.Account_number, accounts.Card_number, accounts.Balance, banks.Logo_path, banks.Country FROM accounts INNER JOIN banks ON accounts.Bank_ID = banks.Bank_ID WHERE accounts.User_ID='$user_ID'";
+                                $get_banks_query = "SELECT accounts.ID, accounts.Account_number, accounts.Card_number, accounts.Balance, banks.Logo_path, banks.Country FROM accounts INNER JOIN banks ON accounts.Bank_ID = banks.Bank_ID WHERE accounts.User_ID='$user_ID'";
                                 $result = $connection->query($get_banks_query);
 
                                 while($row = mysqli_fetch_array($result)){
@@ -30,6 +30,7 @@ if((isset($_POST['signin']) && $_POST['signin'] === "signed_in" && isset($_SESSI
                                         <td>
                                             <!-- edit and delete buttons: -->
                                             <form class="inline" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                                            <input type="hidden" name="account_ID" value="<?php echo $row['ID']; ?>">
                                                 <input type="hidden" name="account_number" value="<?php echo $row['Account_number']; ?>">
                                                 <input type="hidden" name="Country" value="<?php echo $row['Country']; ?>">
                                                 <button  type="submit" name="edit_bank_account" value="edit">

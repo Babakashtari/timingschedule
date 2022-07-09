@@ -136,7 +136,7 @@ if(isset($_POST['edit_bank_account'])){
                     <?php
                 }else{
                     ?>
-                    <p class="error"><?php echo $translation['invalid_account_number_error'] ?></p>
+                        <p class="error"><?php echo $translation['invalid_account_number_error'] ?></p>
                     <?php
                 }
             }

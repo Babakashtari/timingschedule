@@ -2,6 +2,7 @@
     // English regular expressions:
     $English_regular_expressions = [
         "bank_id" => '/^\d{1,8}$/',
+        "account_id" => '/^\d+$/',
         "bank_name" => '/^([A-Z][a-z ]{1,15}){1,8}$/',
         "account_owner" => '/^([A-Z][a-z ]{2,9}){1,5}$/',
         "account_owners" => '/^([A-Z][a-z]{2,15}(,| *)+){1,10}$/',
@@ -18,6 +19,7 @@
     // French regular expressions:
     $French_regular_expressions = [
         "bank_id" => '/^\d{1,8}$/',
+        "account_id" => '/^\d+$/',
         "bank_name" => '/^([A-Z][a-zéàùèûâêîôçëäïü ]{1,15}){1,8}$/',
         "account_owner" => '/^([A-Z][a-zéàùèûâêîôçëäïü ]{2,9}){1,5}$/',
         "account_owners" => '/^([A-Z][a-zéàùèûâêîôçëäïü]{2,15}(,| *)+){1,10}$/',
@@ -34,6 +36,7 @@
     // Persian regular expressions:
     $Persian_regular_expressions = [
         "bank_id" => '/^\d{1,8}$/',
+        "account_id" => '/^\d+$/',
         "bank_name" => '/^([ ءآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ]{1,15}){1,8}$/',
         "account_owner" => '/^([ آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ]{2,9}){1,5}$/',
         "account_owners" => '/^([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ]{2,15}(،| *)+){1,10}$/',

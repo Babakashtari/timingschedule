@@ -1,3 +1,6 @@
+    <?php
+    if(!isset($_POST['delete_bank_account_confirm']) && !isset($_POST['edit_bank_account'])){
+        ?>
     <div class="welcome">
         <p> 
             <?php 
@@ -23,3 +26,6 @@
             ?>
          <?php echo $translation['welcome']; ?></p>
     </div>
+        <?php
+    }
+    ?>
