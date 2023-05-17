@@ -44,6 +44,7 @@ div.register form > fieldset > div > input:focus{
 /* register submit button */
 div.register form > fieldset > div > button[value="registered"]{
     font-style: italic;
+    font-family: iranSans;
     padding:0.5rem;
     border-radius: 5px;
     color:white;
@@ -61,6 +62,7 @@ div.register form > fieldset > div > p{
 /* register submit button */
 div.register form > fieldset > div > p > button[value="signin"]{
     border:none;
+    font-family: iranSans;
     outline:none;
     background-color:transparent;
     color:blue;

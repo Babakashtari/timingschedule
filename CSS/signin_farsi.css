@@ -50,6 +50,7 @@ div.signin form > fieldset > div > button[value="signed_in"]{
     background-color: #28a745 ;
     width:100%;
     cursor: pointer;
+    font-family: iranSans;
 }
 
 /* not a member text: */
@@ -66,4 +67,5 @@ div.signin form > fieldset > div > p > button[value="register"]{
     color:blue;
     text-decoration: underline;
     cursor: pointer;
+    font-family: iranSans;
 }

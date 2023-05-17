@@ -131,10 +131,15 @@ require "PHP/languages/Persian.php";
                     $connection->close();
 
                     if(!$result){
+                        if(!isset($_SESSION['language'])){
+                            $_SESSION['language'] = "EN";
+                        }
                         $something_went_wrong = $translation['something_went_wrong'];
                         array_push($this->errors, "<p class='error'>$something_went_wrong</p>");
                     }else{
-                        if($_SESSION['language'] === "EN"){
+                        if(!isset($_SESSION['language'])){
+                            $_SESSION['language'] = "EN";
+                        }elseif($_SESSION['language'] === "EN"){
                             $dear_user = "Dear <i>$this->username</i>, ";
                             $message_sent_announcement = "A message is sent to <i> $this->email </i>.";
                         }elseif($_SESSION['language'] === "FR"){
