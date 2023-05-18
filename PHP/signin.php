@@ -8,11 +8,11 @@ if(!isset($_SESSION['username']) && $need_signin){
                 <legend><?php echo $translation['sign_in_legend']; ?></legend>
                 <div>
                     <label for="username"><?php echo $translation['Username']; ?></label>
-                    <input type="text" name="username" id="username" placeholder="mike">
+                    <input type="text" name="username" id="username" placeholder="mike" value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
                 </div>
                 <div>
                     <label for="password"><?php echo $translation['password']; ?></label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];} ?>">
                 </div>
                 <div>
                     <button type="submit" name="signin" value="signed_in"><?php echo $translation['sign_in_submit']; ?></button>

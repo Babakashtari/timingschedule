@@ -40,14 +40,14 @@ class Send_email{
         try{
             $mail_config->CharSet = 'UTF-8';
             $mail_config->isSMTP();
-            $mail_config->Host = "mail.diorhome.ir";
+            $mail_config->Host = "mail.kowsarbaft.ir";
             $mail_config->SMTPAuth = true;
-            $mail_config->Username = 'info@diorhome.ir';
-            $mail_config->Password = 'joli1366';
+            $mail_config->Username = 'timingschedule@kowsarbaft.ir';
+            $mail_config->Password = '09353899182joli1366';
             $mail_config->addAddress($this->recipient);
             $mail_config->Subject = $this->subject;
             $mail_config->Body = $this->message;
-            $mail_config->setFrom('support@timingschedule.com', ' Timing Schedule support team');
+            $mail_config->setFrom('timingschedule@kowsarbaft.ir', ' Timing Schedule support team');
             $mail_config->isHTML(true);
             $mail_config->send();
         }catch (Exception $e) {

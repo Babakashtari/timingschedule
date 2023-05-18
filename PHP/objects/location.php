@@ -1,26 +1,25 @@
 <?php
 
 class Get_IP {
-    public static $IP;
-
-    static function get_IP_address() {
-        if(isset($_SERVER['HTTP_CLIENT_IP'])){
-          self::$IP = $_SERVER['HTTP_CLIENT_IP'];
-        }elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
-          self::$IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }elseif(isset($_SERVER['HTTP_X_FORWARDED'])){
-          self::$IP = $_SERVER['HTTP_X_FORWARDED'];
-        }elseif(isset($_SERVER['HTTP_FORWARDED_FOR'])){
-          self::$IP = $_SERVER['HTTP_FORWARDED_FOR'];
-        }elseif(isset($_SERVER['HTTP_FORWARDED'])){
-          self::$IP = $_SERVER['HTTP_FORWARDED'];
-        }elseif(isset($_SERVER['REMOTE_ADDR'])){
-          self::$IP = $_SERVER['REMOTE_ADDR'];
-        }else{
-          self::$IP = "UNKNOWN";
-        }
-        return self::$IP;
-      }  
+  public static $IP;
+  static function get_IP_address() {
+    if(isset($_SERVER['HTTP_CLIENT_IP'])){
+      self::$IP = $_SERVER['HTTP_CLIENT_IP'];
+    }elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
+      self::$IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }elseif(isset($_SERVER['HTTP_X_FORWARDED'])){
+      self::$IP = $_SERVER['HTTP_X_FORWARDED'];
+    }elseif(isset($_SERVER['HTTP_FORWARDED_FOR'])){
+      self::$IP = $_SERVER['HTTP_FORWARDED_FOR'];
+    }elseif(isset($_SERVER['HTTP_FORWARDED'])){
+      self::$IP = $_SERVER['HTTP_FORWARDED'];
+    }elseif(isset($_SERVER['REMOTE_ADDR'])){
+      self::$IP = $_SERVER['REMOTE_ADDR'];
+    }else{
+      self::$IP = "UNKNOWN";
+    }
+    return self::$IP;
+  }  
 }
 
 // getting the IP address:
@@ -62,15 +61,14 @@ class User_location {
         }
     }
     function get_location(){
-        // getting the API link:
-        $API_link =  $this->get_API_link();
-        // getting the result of the API in JSON Format:
-        $JSON_object =  $this->get_API_JSON($API_link);
-        // turning the resulting Json file into a php object:
-        $PHP_object = $this->decode_JSON_object($JSON_object);
-        // extracting city, country and ip of the user:
-        $this->parse_php_object($PHP_object);
-
+      // getting the API link:
+      $API_link =  $this->get_API_link();
+      // getting the result of the API in JSON Format:
+      $JSON_object =  $this->get_API_JSON($API_link);
+      // turning the resulting Json file into a php object:
+      $PHP_object = $this->decode_JSON_object($JSON_object);
+      // extracting city, country and ip of the user:
+      $this->parse_php_object($PHP_object);
     }
 }
 

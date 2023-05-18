@@ -180,8 +180,6 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "invalid_account_number_error" => "شماره حساب درست وارد نشده است.",
         "Edit_bank_account_form_legend" => "اصلاح حساب:",
         "modify_account" => "اعمال تغییرات",
-
-
     ];     
 }
 

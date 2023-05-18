@@ -180,8 +180,6 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "Edit_bank_account_form_legend" => "Edit this account",
         "modify_account" => "Modify the account",
     ]; 
-
-
 }
 
 ?>

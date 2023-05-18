@@ -24,7 +24,8 @@
                     }
                 } 
             ?>
-         <?php echo $translation['welcome']; ?></p>
+         <?php echo $translation['welcome']; ?>
+        </p>
     </div>
         <?php
     }

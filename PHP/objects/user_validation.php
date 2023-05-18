@@ -137,15 +137,14 @@ require "PHP/languages/Persian.php";
                         $something_went_wrong = $translation['something_went_wrong'];
                         array_push($this->errors, "<p class='error'>$something_went_wrong</p>");
                     }else{
-                        if(!isset($_SESSION['language'])){
+                        if(!isset($_SESSION['language']) || $_SESSION['language'] === "EN"){
                             $_SESSION['language'] = "EN";
-                        }elseif($_SESSION['language'] === "EN"){
                             $dear_user = "Dear <i>$this->username</i>, ";
                             $message_sent_announcement = "A message is sent to <i> $this->email </i>.";
                         }elseif($_SESSION['language'] === "FR"){
                             $dear_user = "Cher <i>$this->username</i>, ";
                             $message_sent_announcement = "Un message est envoyé à <i> $this->email </i>.";
-                        }else{
+                        }elseif($_SESSION['language'] === "FA"){
                             $dear_user = "<i>$this->username</i> عزیز، ";
                             $message_sent_announcement = "پیامی به <i> $this->email </i> ارسال شده است.";
                         }
