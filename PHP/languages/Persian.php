@@ -3,6 +3,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
     $translation = [
         "title" => "برنامه و زمان بندی",
         "welcome" => "به برنامه و زمان بندی خوش آمدید.",
+        "account_detail" => "اطلاعات کاربری شما به شرح زیر می باشد:",
         "dear" => "عزیز",
         "logo_text" => "برنامه و زمانبندی",
         "first_menu_text" => "قصد راه اندازی چه برنامه ای را دارید؟",

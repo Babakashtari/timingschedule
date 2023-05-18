@@ -1,9 +1,10 @@
 <?php
 if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
     $translation = [
-        "title" => "Direction du Temps!",
+        "title" => "Timing Schedule!",
         "welcome" => "Bienvenu à Timing Schedule.",
-        "dear" => "Cher",
+        "account_detail" => "trouvez les details de votre compte ici:",
+        "dear" => "Cher/Chère",
         "logo_text" => "Timing Schedule",
         "first_menu_text" => "Choisissez ce que vous vouliez:",
         "business_menu" => "Programmes commerciaux",

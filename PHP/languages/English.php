@@ -2,7 +2,8 @@
 if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['language'] === "EN"){
     $translation = [
         "title" => "Timing Schedule",
-        "welcome" => "welcome to Timing Schedule.",
+        "welcome" => "Welcome to Timing Schedule.",
+        "account_detail" => "Your account detail is as follows:",
         "dear" => "Dear",
         "logo_text" => "Timing Schedule",
         "first_menu_text" => "Please choose what you would like to set up:",
