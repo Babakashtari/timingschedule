@@ -1,19 +1,22 @@
 <?php
 
 // if actually someone pressed the email link: 
-if(isset($_GET['email']) && isset($_GET['code'])){
+if(isset($_GET['email']) && isset($_GET['code']) && isset($_GET['language'])){
 
     $email = $_GET['email'];            
     $token = $_GET['code'];
+    $language = $_GET['language'];
 
     $clean_data = new Data_clean_up();
     $cleaned_email = $clean_data->test_email($email);
+    $cleaned_language = $clean_data->test_input("/^(EN|FA|FR)$/", $language);
     $cleaned_token = $clean_data->test_input("/^[a-z0-9]{10}$/", $token);
 
-    // if both email and token are in a valid format and not empty:
-    if(!empty($cleaned_email) && !empty($cleaned_token)){
-        // echo "<p class='success'>Both email and token are valid</p>";
-        require "database_connection.php";
+    // if email, token and the input language were in a valid format and not empty:
+    if(!empty($cleaned_email) && !empty($cleaned_token) && !empty($cleaned_language)){
+      $_SESSION['language'] = $cleaned_language;
+
+      require "database_connection.php";
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);
         }else{
@@ -28,20 +31,20 @@ if(isset($_GET['email']) && isset($_GET['code'])){
                   // deleting token:
                   $delete_query = "UPDATE users SET registry_token=NULL WHERE email='$cleaned_email'";
                   $result = $connection->query($delete_query);
-                  echo "<p class='success'>Thank you for registration. Your account is now activated and you can login here:</p>";
+                  echo "<p class='success'>{$translation['registration_appreciation']} {$translation['activation_confirmation']}</p>";
                 }else{
-                  echo "<p class='error'> Incorrect token inserted.</p>";
+                  echo "<p class='error'>{$translation['incorrect_token_error']}</p>";
                 }
               }else{
-                echo "<p class='error'> You have already activated your account.</p>";
+                echo "<p class='error'>{$translation['token_activated_before']}</p>";
               }
             }else{
-                echo "<p class='error'>No user found with your credentials.</p>";
+                echo "<p class='error'>{$translation['no_user_found']}</p>";
             }
         }
     }else{
         // the format of token or email is not valid:
-        echo "<p class='error'>Email or Token are not in a valid format.</p>";
+        echo "<p class='error'>{$translation['email_token_language_format_error']}</p>";
     }
 }
     

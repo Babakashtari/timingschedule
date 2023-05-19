@@ -20,6 +20,7 @@ class Send_email{
     public $footer1;
     public $footer2;
     public $message;
+    public $current_page_url;
 
     function email_activation_message_generator($email, $username, $password, $token){
         if(!isset($_SESSION['language'])){
@@ -34,18 +35,25 @@ class Send_email{
         global $translation;
         $this->subject = $translation['welcome'];
         if($_SESSION['language'] === "EN" || $_SESSION['language'] === "FR"){
-            $this->heading = "<p style={$styles} >{$translation['dear']} . ' ' . {$username}, </p>";
+            $this->heading = "<p style={$styles} >{$translation['dear']} {$username}, </p>";
         }elseif($_SESSION['language'] === "FA"){
-            $this->heading = "<p style={$styles} >{$username} . ' ' . {$translation['dear']}, </p>";
+            $this->heading = "<p style={$styles} >{$username} {$translation['dear']}, </p>";
         }
-        $this->body1 = "<p style={$styles} >{$translation['welcome']} . {$translation['account_detail']}</p>";
+        $this->body1 = "<p style={$styles} >{$translation['welcome']} {$translation['account_detail']}</p>";
         // I shall continue from here:
-        $this->username_text = "<p style=$styles >username: $username</p>";
-        $this->password_text = "<p style=$styles >password: $password</p>";
-        $this->body2 = "<p style=$styles >If you have not registered into our site, there is no need to further action. However, if this was you, please visit the link below to activate your account:</p>";
-        $activation_link = "<p><a href ='https://timingschedule.com/index.php?email=" .$email . '&code=' . $token. "'>https://timingschedule.com/index.php?email=" . $email . '&code=' . $token ."</a></p>";
-        $this->footer1 = "<p style=$styles >Yours Sincerely,</p>";
-        $this->footer2 = "<p style=$styles >Timing Schedule support team</p>";
+        $this->username_text = "<p style=$styles >{$translation['Username']} {$username}</p>";
+        $this->password_text = "<p style=$styles >{$translation['password']} {$password}</p>";
+        $this->body2 = "<p style=$styles >{$translation['ignore_activation_message']} {$translation['activation_request']}</p>";
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on"){
+            $start_of_the_url = "https://";
+        }else{
+            $start_of_the_url = "http://";
+        }
+        $actual_url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $this->full_page_url = $start_of_the_url . $actual_url;
+        $activation_link = "<p><a href ='{$this->full_page_url}?email=" .$email . '&code=' . $token. "'>{$this->full_page_url}?email=" . $email . '&code=' . $token . '&language=' . $_SESSION['language'] . "</a></p>";
+        $this->footer1 = "<p style=$styles >{$translation['letter_ending']}</p>";
+        $this->footer2 = "<p style=$styles >{$translation['signature']}</p>";
 
         $this->message = $this->heading . $this->body1 . $this->username_text . $this->password_text . $this->body2 . $activation_link . $this->footer1 . $this->footer2;
     }
