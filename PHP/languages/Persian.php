@@ -14,6 +14,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "token_activated_before" => "کاربری شما قبلا فعال شده است.",
         "no_user_found" => "کاربری با اطلاعات وارده یافت نشد.",
         "email_token_language_format_error" => "ایمیل، توکن فعالسازی و یا زبان کاربری درست مشخص نشده است.",
+        "add_new_program_error" => "قبل از شروع برنامه جدید لطفا وارد شوید.",
         "dear" => "عزیز",
         "logo_text" => "برنامه و زمانبندی",
         "first_menu_text" => "قصد راه اندازی چه برنامه ای را دارید؟",
@@ -97,7 +98,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FA"){
         "sign_in_legend" => "از اینجا وارد شوید:",
         "Username" => "نام کاربری:",
         "password" => "رمز عبور:",
-        "sign_in_submit" => "ارسال",
+        "sign_in_submit" => "ورود",
         "Not_a_member" => "هنوز عضو نشده اید؟",
         "Register_here" => "اینجا ثبت نام کنید",
 

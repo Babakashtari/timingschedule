@@ -14,6 +14,7 @@ if(!isset($_SESSION['language']) || empty($_SESSION['language']) || $_SESSION['l
         "token_activated_before" => "You have already activated your account.",
         "no_user_found" => "No user found with your credentials.",
         "email_token_language_format_error" => "Email, Token or the language of the user are not in a valid format.",
+        "add_new_program_error" => "You must login first to add a new program.",
         "dear" => "Dear",
         "logo_text" => "Timing Schedule",
         "first_menu_text" => "Please choose what you would like to set up:",

@@ -106,8 +106,6 @@ class Session extends Validation {
             $add_page_view->adding_user_pages_sequence();    
         }
     }
-
-
     // if the logout button is clicked by the user:
     if(isset($_POST['kill_session'])){
         // calling the kill_session static method:

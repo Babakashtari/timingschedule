@@ -14,6 +14,7 @@ if(isset($_SESSION['language']) && $_SESSION['language'] === "FR"){
         "token_activated_before" => "Vous avez déjà activé votre compte.",
         "no_user_found" => "Aucun compte est trouvé dans notre site.",
         "email_token_language_format_error" => "Le courriel, le code d'activation ou la langue d'utilisateur ne sont pas précis.",
+        "add_new_program_error" => "Vous devez entrer avant d'inaugurer un nouveau programme.",
         "dear" => "Cher/Chère",
         "logo_text" => "Timing Schedule",
         "first_menu_text" => "Choisissez ce que vous vouliez:",

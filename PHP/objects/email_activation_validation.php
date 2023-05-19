@@ -15,7 +15,7 @@ if(isset($_GET['email']) && isset($_GET['code']) && isset($_GET['language'])){
     // if email, token and the input language were in a valid format and not empty:
     if(!empty($cleaned_email) && !empty($cleaned_token) && !empty($cleaned_language)){
       $_SESSION['language'] = $cleaned_language;
-
+      // global $translation; I have to do something here so that in email verification interface, language would be the language of the choice of the user at the moment of registration.
       require "database_connection.php";
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);

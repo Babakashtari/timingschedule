@@ -86,7 +86,7 @@ if(isset($_POST['add_new'])){
     // if user is not logged in and tries to add a new program:
     if(!isset($_SESSION['username'])){
         ?>
-            <p class='error'>You must login first to add a new program.</p>
+            <p class='error'><?php echo $translation['add_new_program_error']; ?></p>
         <?php
     }else{
         $First_menu = new First_menu();
